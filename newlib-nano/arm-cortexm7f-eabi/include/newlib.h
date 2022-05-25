@@ -9,30 +9,7 @@
 /* Newlib version */
 #include <_newlib_version.h>
 
-/* Define to 1 if you have the <dlfcn.h> header file. */
-
-/* Define to 1 if you have the <inttypes.h> header file. */
-
 /* Define to 1 if the system has the type `long double'. */
-
-/* Define to 1 if you have the <memory.h> header file. */
-
-/* Define to 1 if you have the <stdint.h> header file. */
-
-/* Define to 1 if you have the <stdlib.h> header file. */
-
-/* Define to 1 if you have the <strings.h> header file. */
-
-/* Define to 1 if you have the <string.h> header file. */
-
-/* Define to 1 if you have the <sys/stat.h> header file. */
-
-/* Define to 1 if you have the <sys/types.h> header file. */
-
-/* Define to 1 if you have the <unistd.h> header file. */
-
-/* Define to the sub-directory in which libtool stores uninstalled libraries.
-   */
 
 /* Define to the address where bug reports for this package should be sent. */
 
@@ -45,8 +22,6 @@
 /* Define to the home page for this package. */
 
 /* Define to the version of this package. */
-
-/* Define to 1 if you have the ANSI C header files. */
 
 /* If atexit() may dynamically allocate space for cleanup functions. */
 #define _ATEXIT_DYNAMIC_ALLOC 1
@@ -397,9 +372,6 @@
 /* Verify _REENT_CHECK macros allocate memory successfully. */
 #define _REENT_CHECK_VERIFY 1
 
-/* Define if declare atexit data as global. */
-#define _REENT_GLOBAL_ATEXIT 1
-
 /* Define if using retargetable functions for default lock routines. */
 #define _RETARGETABLE_LOCKING 1
 
@@ -420,6 +392,9 @@
 
 /* Positional argument support in printf functions enabled. */
 #define _WANT_IO_POS_ARGS 1
+
+/* Define to enable backward binary compatibility for struct _reent. */
+/* #undef _WANT_REENT_BACKWARD_BINARY_COMPAT */
 
 /* Define to move the stdio stream FILE objects out of struct _reent and make
    them global. The stdio stream pointers of struct _reent are initialized to
