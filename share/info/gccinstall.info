@@ -1,4 +1,4 @@
-This is gccinstall.info, produced by makeinfo version 7.0.2 from
+This is gccinstall.info, produced by makeinfo version 7.0.3 from
 install.texi.
 
 Copyright © 1988-2022 Free Software Foundation, Inc.
@@ -116,7 +116,9 @@ Tools/packages necessary for building GCC
 =========================================
 
 ISO C++11 compiler
-     Necessary to bootstrap GCC.
+     Necessary to bootstrap GCC. GCC 4.8.3 or newer has sufficient
+     support for used C++11 features, with earlier GCC versions you
+     might run into implementation bugs.
 
      Versions of GCC prior to 11 also allow bootstrapping with an ISO
      C++98 compiler, versions of GCC prior to 4.8 also allow
@@ -125,8 +127,8 @@ ISO C++11 compiler
 
      To build all languages in a cross-compiler or other configuration
      where 3-stage bootstrap is not performed, you need to start with an
-     existing GCC binary (version 4.8 or later) because source code for
-     language frontends other than C might use GCC extensions.
+     existing GCC binary (version 4.8.3 or later) because source code
+     for language frontends other than C might use GCC extensions.
 
 C standard library and headers
 
@@ -178,7 +180,7 @@ GNAT
 GDC
 
      In order to build GDC, the D compiler, you need a working GDC
-     compiler (GCC version 9.1 or later) and D runtime library,
+     compiler (GCC version 9.4 or later) and D runtime library,
      ‘libphobos’, as the D front end is written in D.
 
      Versions of GDC prior to 12 can be built with an ISO C++11
@@ -3144,13 +3146,13 @@ amdgcn-*-amdhsa
 
 AMD GCN GPU target.
 
-   Instead of GNU Binutils, you will need to install LLVM 6, or later,
-and copy ‘bin/llvm-mc’ to ‘amdgcn-amdhsa/bin/as’, ‘bin/lld’ to
+   Instead of GNU Binutils, you will need to install LLVM 13.0.1, or
+later, and copy ‘bin/llvm-mc’ to ‘amdgcn-amdhsa/bin/as’, ‘bin/lld’ to
 ‘amdgcn-amdhsa/bin/ld’, ‘bin/llvm-nm’ to ‘amdgcn-amdhsa/bin/nm’, and
 ‘bin/llvm-ar’ to both ‘bin/amdgcn-amdhsa-ar’ and
 ‘bin/amdgcn-amdhsa-ranlib’.
 
-   Use Newlib (2019-01-16, or newer).
+   Use Newlib (3.2.0, or newer).
 
    To run the binaries, install the HSA Runtime from the ROCm Platform,
 and use ‘libexec/gcc/amdhsa-amdhsa/VERSION/gcn-run’ to launch them on
@@ -3849,11 +3851,9 @@ Nvidia PTX target.
 GCC where to find it:
 ‘--with-build-time-tools=[install-nvptx-tools]/nvptx-none/bin’.
 
-   You will need newlib 3.0 git revision
-cd31fbb2aea25f94d7ecedc9db16dfc87ab0c316 or later.  It can be
-automatically built together with GCC.  For this, add a symbolic link to
-nvptx-newlib’s ‘newlib’ directory to the directory containing the GCC
-sources.
+   You will need newlib 3.1.0 or later.  It can be automatically built
+together with GCC.  For this, add a symbolic link to nvptx-newlib’s
+‘newlib’ directory to the directory containing the GCC sources.
 
    Use the ‘--disable-sjlj-exceptions’ and
 ‘--enable-newlib-io-long-long’ options when configuring.
@@ -4878,105 +4878,105 @@ Tag Table:
 Node: Top1712
 Node: Installing GCC2217
 Node: Prerequisites3859
-Ref: GNAT-prerequisite5726
-Ref: GDC-prerequisite7151
-Node: Downloading the source17047
-Node: Configuration18766
-Ref: with-gnu-as37694
-Ref: with-as38633
-Ref: with-gnu-ld40090
-Ref: WithAixSoname66861
-Ref: AixLdCommand67576
-Node: Building112063
-Node: Testing128756
-Node: Final install136809
-Node: Binaries142310
-Node: Specific143454
-Ref: aarch64-x-x143988
-Ref: alpha-x-x146072
-Ref: amd64-x-solaris2146286
-Ref: amdgcn-x-amdhsa146372
-Ref: arc-x-elf32146938
-Ref: arc-linux-uclibc147130
-Ref: arm-x-eabi147275
-Ref: avr147532
-Ref: bfin148121
-Ref: cr16148384
-Ref: cris148808
-Ref: dos149138
-Ref: epiphany-x-elf149463
-Ref: x-x-freebsd149568
-Ref: ft32-x-elf151248
-Ref: h8300-hms151346
-Ref: hppa-hp-hpux151698
-Ref: hppa-hp-hpux10154120
-Ref: hppa-hp-hpux11154537
-Ref: x-x-linux-gnu160055
-Ref: ix86-x-linux160386
-Ref: ix86-x-solaris2160699
-Ref: ia64-x-linux161823
-Ref: ia64-x-hpux162074
-Ref: x-ibm-aix162641
-Ref: TransferAixShobj166369
-Ref: iq2000-x-elf170271
-Ref: lm32-x-elf170411
-Ref: lm32-x-uclinux170515
-Ref: loongarch170643
-Ref: m32c-x-elf171377
-Ref: m32r-x-elf171479
-Ref: m68k-x-x171581
-Ref: m68k-x-uclinux172711
-Ref: microblaze-x-elf172964
-Ref: mips-x-x173083
-Ref: moxie-x-elf175077
-Ref: msp430-x-elf175124
-Ref: nds32le-x-elf175693
-Ref: nds32be-x-elf175765
-Ref: nvptx-x-none175834
-Ref: or1k-x-elf176415
-Ref: or1k-x-linux176546
-Ref: powerpc-x-x176627
-Ref: powerpc-x-darwin176826
-Ref: powerpc-x-elf177321
-Ref: powerpc-x-linux-gnu177406
-Ref: powerpc-x-netbsd177501
-Ref: powerpc-x-eabisim177589
-Ref: powerpc-x-eabi177715
-Ref: powerpcle-x-elf177791
-Ref: powerpcle-x-eabisim177883
-Ref: powerpcle-x-eabi178016
-Ref: rl78-x-elf178099
-Ref: riscv32-x-elf178205
-Ref: riscv32-x-linux178394
-Ref: riscv64-x-elf178551
-Ref: riscv64-x-linux178740
-Ref: rx-x-elf178897
-Ref: s390-x-linux178943
-Ref: s390x-x-linux179015
-Ref: s390x-ibm-tpf179102
-Ref: x-x-solaris2179233
-Ref: sparc-x-x182809
-Ref: sparc-sun-solaris2183311
-Ref: sparc-x-linux184470
-Ref: sparc64-x-solaris2184501
-Ref: sparcv9-x-solaris2185243
-Ref: c6x-x-x185334
-Ref: tilegx-*-linux185426
-Ref: tilegxbe-*-linux185568
-Ref: tilepro-*-linux185711
-Ref: visium-x-elf185832
-Ref: x-x-vxworks185940
-Ref: x86-64-x-x187529
-Ref: x86-64-x-solaris2187861
-Ref: xtensa-x-elf188539
-Ref: xtensa-x-linux189218
-Ref: windows189571
-Ref: x-x-cygwin191373
-Ref: x-x-mingw32191928
-Ref: older192326
-Ref: elf194467
-Node: GNU Free Documentation License194725
-Node: Concept Index220063
+Ref: GNAT-prerequisite5871
+Ref: GDC-prerequisite7296
+Node: Downloading the source17192
+Node: Configuration18911
+Ref: with-gnu-as37839
+Ref: with-as38778
+Ref: with-gnu-ld40235
+Ref: WithAixSoname67006
+Ref: AixLdCommand67721
+Node: Building112208
+Node: Testing128901
+Node: Final install136954
+Node: Binaries142455
+Node: Specific143599
+Ref: aarch64-x-x144133
+Ref: alpha-x-x146217
+Ref: amd64-x-solaris2146431
+Ref: amdgcn-x-amdhsa146517
+Ref: arc-x-elf32147083
+Ref: arc-linux-uclibc147275
+Ref: arm-x-eabi147420
+Ref: avr147677
+Ref: bfin148266
+Ref: cr16148529
+Ref: cris148953
+Ref: dos149283
+Ref: epiphany-x-elf149608
+Ref: x-x-freebsd149713
+Ref: ft32-x-elf151393
+Ref: h8300-hms151491
+Ref: hppa-hp-hpux151843
+Ref: hppa-hp-hpux10154265
+Ref: hppa-hp-hpux11154682
+Ref: x-x-linux-gnu160200
+Ref: ix86-x-linux160531
+Ref: ix86-x-solaris2160844
+Ref: ia64-x-linux161968
+Ref: ia64-x-hpux162219
+Ref: x-ibm-aix162786
+Ref: TransferAixShobj166514
+Ref: iq2000-x-elf170416
+Ref: lm32-x-elf170556
+Ref: lm32-x-uclinux170660
+Ref: loongarch170788
+Ref: m32c-x-elf171522
+Ref: m32r-x-elf171624
+Ref: m68k-x-x171726
+Ref: m68k-x-uclinux172856
+Ref: microblaze-x-elf173109
+Ref: mips-x-x173228
+Ref: moxie-x-elf175222
+Ref: msp430-x-elf175269
+Ref: nds32le-x-elf175838
+Ref: nds32be-x-elf175910
+Ref: nvptx-x-none175979
+Ref: or1k-x-elf176508
+Ref: or1k-x-linux176639
+Ref: powerpc-x-x176720
+Ref: powerpc-x-darwin176919
+Ref: powerpc-x-elf177414
+Ref: powerpc-x-linux-gnu177499
+Ref: powerpc-x-netbsd177594
+Ref: powerpc-x-eabisim177682
+Ref: powerpc-x-eabi177808
+Ref: powerpcle-x-elf177884
+Ref: powerpcle-x-eabisim177976
+Ref: powerpcle-x-eabi178109
+Ref: rl78-x-elf178192
+Ref: riscv32-x-elf178298
+Ref: riscv32-x-linux178487
+Ref: riscv64-x-elf178644
+Ref: riscv64-x-linux178833
+Ref: rx-x-elf178990
+Ref: s390-x-linux179036
+Ref: s390x-x-linux179108
+Ref: s390x-ibm-tpf179195
+Ref: x-x-solaris2179326
+Ref: sparc-x-x182902
+Ref: sparc-sun-solaris2183404
+Ref: sparc-x-linux184563
+Ref: sparc64-x-solaris2184594
+Ref: sparcv9-x-solaris2185336
+Ref: c6x-x-x185427
+Ref: tilegx-*-linux185519
+Ref: tilegxbe-*-linux185661
+Ref: tilepro-*-linux185804
+Ref: visium-x-elf185925
+Ref: x-x-vxworks186033
+Ref: x86-64-x-x187622
+Ref: x86-64-x-solaris2187954
+Ref: xtensa-x-elf188632
+Ref: xtensa-x-linux189311
+Ref: windows189664
+Ref: x-x-cygwin191466
+Ref: x-x-mingw32192021
+Ref: older192419
+Ref: elf194560
+Node: GNU Free Documentation License194818
+Node: Concept Index220156
 
 End Tag Table
 
