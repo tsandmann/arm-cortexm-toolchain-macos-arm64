@@ -1628,7 +1628,7 @@
 /* Define if the linker supports clearing hardware capabilities via mapfile.
    */
 #ifndef USED_FOR_TARGET
-#define HAVE_LD_CLEARCAP 1
+/* #undef HAVE_LD_CLEARCAP */
 #endif
 
 
