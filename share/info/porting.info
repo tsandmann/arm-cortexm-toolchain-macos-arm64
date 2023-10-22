@@ -1,4 +1,4 @@
-This is porting.info, produced by makeinfo version 7.0.3 from
+This is porting.info, produced by makeinfo version 7.1 from
 porting.texi.
 
 START-INFO-DIR-ENTRY
@@ -30,7 +30,7 @@ Embed with GNU
    The goal of this document is to gather all the information needed to
 port the GNU tools to a new embedded target in one place.  This will
 duplicate some info found in the other manual for the GNU tools, but
-this should be all you’ll need.
+this should be all you'll need.
 
 * Menu:
 
@@ -71,7 +71,7 @@ execution environment.  An example of this would be a tool chain for the
 AMD 29k processor family.  All of the execution environments for this
 processor have the same interface, the same memory map, and the same I/O
 code.  In this case all of the support code is under newlib/libc/sys.
-Libgloss’s creation was forced initially because of the ‘cpu32’
+Libgloss's creation was forced initially because of the ‘cpu32’
 processor family.  There are many different execution environments for
 this line, and they vary wildly.  newlib itself has only a few
 dependencies that it needs for each target.  These are explained later
@@ -85,8 +85,8 @@ executable image.  This work was done during the early part of 1993.
    After a while it became apparent that this approach of isolating the
 hardware and systems files together made sense.  Around this same time
 the stub dirs were made to run standalone, mostly so it could also be
-used to support GDB’s remote debugging needs.  At this time it was
-decided to move the stub dirs out of newlib and into it’s own separate
+used to support GDB's remote debugging needs.  At this time it was
+decided to move the stub dirs out of newlib and into it's own separate
 library so it could be used standalone, and be included in various other
 GNU tools without having to bring in all of newlib, which is large.  The
 new library is called Libgloss, for Gnu Low-level OS support.
@@ -111,7 +111,7 @@ Currently libgloss is being used for at least the following targets:
 * Menu:
 
 * Blackfin::                    Analog Devices, Inc. Blackfin processor.
-* Sparclite::                   Fujitsu’s sparclite.
+* Sparclite::                   Fujitsu's sparclite.
 * CPU32::                       Various m68k based targets.
 * Mips::                        Mips code based targets.
 * PA-RISC::                     Precision Risc Organization..
@@ -150,8 +150,8 @@ File: porting.info,  Node: CPU32,  Next: Mips,  Prev: Sparclite,  Up: Supported 
 1.1.3 Motorola CPU32 Targets supported
 --------------------------------------
 
-This refers to Motorola’s m68k based CPU32 processor family.  The crt0.S
-startup file should be usable with any target environment, and it’s
+This refers to Motorola's m68k based CPU32 processor family.  The crt0.S
+startup file should be usable with any target environment, and it's
 mostly just the I/O code and linker scripts that vary.  Currently there
 is support for the Motorola MVME line of 6U VME boards and IDP line of
 eval boards.  All of the Motorola VME boards run ‘Bug’, a ROM based
@@ -163,8 +163,8 @@ section begins.  This can be accomplished either in the linker script,
 or on the command line using the ‘-Ttext [address]’.
 
    There is also support for the ‘rom68k’ monitor as shipped on
-Motorola’s IDP eval board line.  This code should be portable across the
-range of CPU’s the board supports.  There is also GDB support for this
+Motorola's IDP eval board line.  This code should be portable across the
+range of CPU's the board supports.  There is also GDB support for this
 target environment in the GDB source tree.  The relevant files are
 gdb/monitor.c, monitor.h, and rom58k-rom.c.  The usage of these files is
 discussed in the GDB section.
@@ -175,13 +175,13 @@ File: porting.info,  Node: Mips,  Next: PA-RISC,  Prev: CPU32,  Up: Supported ta
 1.1.4 Mips core Targets Supported
 ---------------------------------
 
-The Crt0 startup file should run on any mips target that doesn’t require
+The Crt0 startup file should run on any mips target that doesn't require
 additional hardware initialization.  The I/O code so far only supports a
 custom LSI33k based RAID disk controller board.  It should easy to
 change to support the IDT line of eval boards.  Currently the two
-debugging protocols supported by GDB for mips targets is IDT’s mips
+debugging protocols supported by GDB for mips targets is IDT's mips
 debug protocol, and a customized hybrid of the standard GDB remote
-protocol and GDB’s standard ROM monitor support.  Included here is the
+protocol and GDB's standard ROM monitor support.  Included here is the
 debug stub for the hybrid monitor.  This supports the LSI33k processor,
 and only has support for the GDB protocol commands ‘g’, ‘G’, ‘m’, ‘M’,
 which basically only supports the register and memory reading and
@@ -190,7 +190,7 @@ writing commands.  This is part of libgloss and is called lsi33k-stub.c.
    The crt0.S should also work on the IDT line of eval boards, but has
 only been run on the LSI33k for now.  There is no I/O support for the
 IDT eval board at this time.  The current I/O code is for a customized
-version of LSI’s ‘pmon’ ROM monitor.  This uses entry points into the
+version of LSI's ‘pmon’ ROM monitor.  This uses entry points into the
 monitor, and should easily port to other versions of the pmon monitor.
 Pmon is distributed in source by LSI.
 
@@ -208,13 +208,13 @@ op50n processor.
 
    There is also included, but never built an unfinished port to the HP
 743 board.  This board is the main CPU board for the HP700 line of
-industrial computers.  This target isn’t exactly an embedded system, in
-fact it’s really only designed to load and run HP-UX. Still, the crt0.S
+industrial computers.  This target isn't exactly an embedded system, in
+fact it's really only designed to load and run HP-UX. Still, the crt0.S
 and I/O code are fully working.  It is included mostly because their is
 a barely functioning exception handler GDB debug stub, and I hope
-somebody could use it.  The other PRO targets all use GDB’s ability to
-talk to ROM monitors directly, so it doesn’t need a debug stub.  There
-is also a utility that will produce a bootable file by HP’s ROM monitor.
+somebody could use it.  The other PRO targets all use GDB's ability to
+talk to ROM monitors directly, so it doesn't need a debug stub.  There
+is also a utility that will produce a bootable file by HP's ROM monitor.
 This is all included in the hopes somebody else will finish it.  :-)
 
    Both the WinBond board and the Oki board download srecords.  The
@@ -234,32 +234,32 @@ Libgloss uses an autoconf based script to configure.  Autoconf scripts
 are portable shell scripts that are generated from a configure.ac file.
 Configure input scripts are based themselves on m4.  Most configure
 scripts run a series of tests to determine features the various
-supported features of the target.  For features that can’t be determined
+supported features of the target.  For features that can't be determined
 by a feature test, a makefile fragment is merged in.  The configure
 process leaves creates a Makefile in the build directory.  For libgloss,
-there are only a few configure options of importance.  These are –target
-and –srcdir.
+there are only a few configure options of importance.  These are -target
+and -srcdir.
 
    Typically libgloss is built in a separate tree just for objects.  In
-this manner, it’s possible to have a single source tree, and multiple
+this manner, it's possible to have a single source tree, and multiple
 object trees.  If you only need to configure for a single target
 environment, then you can configure in the source tree.  The argument
-for –target is a config string.  It’s usually safest to use the full
+for -target is a config string.  It's usually safest to use the full
 canonical opposed to the target alias.  So, to configure for a CPU32
 (m68k) with a separate source tree, use:
 
      ../src/libgloss/configure --verbose --target m68k-coff
 
    The configure script is in the source tree.  When configure is
-invoked it will determine it’s own source tree, so the –srcdir is would
+invoked it will determine it's own source tree, so the -srcdir is would
 be redundant here.
 
    Once libgloss is configured, ‘make’ is sufficient to build it.  The
 default values for ‘Makefiles’ are typically correct for all supported
 systems.  The test cases in the testsuite will also built automatically
-as opposed to a ‘make check’, where test binaries aren’t built till test
+as opposed to a ‘make check’, where test binaries aren't built till test
 time.  This is mostly cause the libgloss testsuites are the last thing
-built when building the entire GNU source tree, so it’s a good test of
+built when building the entire GNU source tree, so it's a good test of
 all the other compilation passes.
 
    The default values for the Makefiles are set in the Makefile fragment
@@ -271,12 +271,12 @@ merged in during configuration.  This fragment typically has rules like
 
    Basically this is a runtime test to determine whether there are
 freshly built executables for the other main passes of the GNU tools.
-If there isn’t an executable built in the same object tree, then
+If there isn't an executable built in the same object tree, then
 _transformed_the generic tool name (like gcc) is transformed to the name
 typically used in GNU cross compilers.  The names are typically based on
-the target’s canonical name, so if you’ve configured for ‘m68k-coff’ the
+the target's canonical name, so if you've configured for ‘m68k-coff’ the
 transformed name is ‘m68k-coff-gcc’ in this case.  If you install with
-aliases or rename the tools, this won’t work, and it will always look
+aliases or rename the tools, this won't work, and it will always look
 for tools in the path.  You can force the a different name to work by
 reconfiguring with the ‘--program-transform-name’ option to configure.
 This option takes a sed script like this ‘-e s,^,m68k-coff-,’ which
@@ -289,7 +289,7 @@ idea.  This technique gets messier when build options like
 the linking is done with an installed cross compiler, then none of this
 needs to be used.  This is done so libgloss will build automatically
 with a fresh, and uninstalled object tree.  It also makes it easier to
-debug the other tools using libgloss’s test suites.
+debug the other tools using libgloss's test suites.
 
 
 File: porting.info,  Node: Board support,  Next: Build System Internals,  Prev: Building libgloss,  Up: Libgloss
@@ -349,7 +349,7 @@ GNU Libtool: (libtool)Top. is not used as Libgloss only produces objects
 and static archives, and *note GNU Automake: (automake)Top. is capable
 of handling that.
 
-   If you’re editing any of these files and want to regenerate them,
+   If you're editing any of these files and want to regenerate them,
 simply run ‘autoreconf’.  It will take care of the rest.
 
    Tool versions are strictly controlled.  You must use GNU Autoconf
@@ -363,7 +363,7 @@ wishes to run custom configure tests should store them in ‘acinclude.m4’
 in their respective subdirectory and then use ‘m4_include’ in
 ‘configure.ac’.  Make sure to avoid running excessive tests for all
 targets, and avoid using generic names that can collide with other
-architectures – the build uses a flat namespace that is shared among
+architectures - the build uses a flat namespace that is shared among
 everyone.
 
    Libgloss has partially converted to *note GNU Automake:
@@ -409,7 +409,7 @@ will need to be elsewhere.
    Once you have linker support, GCC will be able to produce a fully
 linked executable image.  The only _part_ of GCC that the linker wants
 is a crt0.o, and a memory map.  If you plan on running any programs that
-do I/O of any kind, you’ll need to write support for the C library,
+do I/O of any kind, you'll need to write support for the C library,
 which is described elsewhere.
 
 * Menu:
@@ -435,7 +435,7 @@ will format command line options for the other passes.  The usual
 command line GCC uses for the final link phase will have LD link in the
 startup code and additional libraries by default.
 
-   GNU AS started it’s life to only function as a compiler pass, but
+   GNU AS started it's life to only function as a compiler pass, but
 these days it can also be used as a source level assembler.  When used
 as a source level assembler, it has a companion assembler preprocessor
 called ‘gasp’.  This has a syntax similar to most other assembler macros
@@ -444,7 +444,7 @@ source.  The object file contains the executable part of the
 application, and debug symbols.
 
    LD is responsible for resolving the addresses and symbols to
-something that will be fully self-contained.  Some RTOS’s use
+something that will be fully self-contained.  Some RTOS's use
 relocatable object file formats like ‘a.out’, but more commonly the
 final image will only use absolute addresses for symbols.  This enables
 code to be burned into PROMS as well.  Although LD can produce an
@@ -456,7 +456,7 @@ map, the executable image will actually run on the target environment.
    The startup code usually defines a special symbol like ‘_start’ that
 is the default base address for the application, and the first symbol in
 the executable image.  If you plan to use any routines from the standard
-C library, you’ll also need to implement the functions that this library
+C library, you'll also need to implement the functions that this library
 is dependent on.  *note Porting Newlib: Libraries.
 
 
@@ -479,7 +479,7 @@ arguments for the linker.
 
 File: porting.info,  Node: GCC Options,  Next: GAS Options,  Up: Options
 
-Most of the GCC options that we’re interested control how the GCC driver
+Most of the GCC options that we're interested control how the GCC driver
 formats the options for the linker pass.
 
 ‘-nostartfiles’
@@ -517,7 +517,7 @@ File: porting.info,  Node: Crt0,  Next: Linker Scripts,  Up: Libraries
 
 To make a program that has been compiled with GCC to run, you need to
 write some startup code.  The initial piece of startup code is called a
-crt0.  (C RunTime 0) This is usually written in assembler, and it’s
+crt0.  (C RunTime 0) This is usually written in assembler, and it's
 object gets linked in first, and bootstraps the rest of the application
 when executed.  This file needs to do the following things.
 
@@ -541,7 +541,7 @@ when executed.  This file needs to do the following things.
      line arguments and an environment pointer.  Then branch to main().
      For G++ the the main routine gets a branch to __main inserted by
      the code generator at the very top.  __main() is used by G++ to
-     initialize it’s internal tables.  __main() then returns back to
+     initialize it's internal tables.  __main() then returns back to
      your original main() and your code gets executed.
 
   4. Call exit() After main() has returned, you need to cleanup things
@@ -561,7 +561,7 @@ Example Crt0.S: crt0.S.
 
      #define CONCAT1(a, b) CONCAT2(a, b)
      #define CONCAT2(a, b) a ## b
-   These we’ll use later.
+   These we'll use later.
 
      /* These are predefined by new versions of GNU cpp.  */
 
@@ -624,7 +624,7 @@ script, but it typically gets done here.
 
    Set up an empty space for the environment.  This is bogus on any most
 ROM monitor, but we setup a valid address for it, and pass it to main.
-At least that way if an application checks for it, it won’t crash.
+At least that way if an application checks for it, it won't crash.
 
       	.align	2
      	.text
@@ -638,7 +638,7 @@ At least that way if an application checks for it, it won’t crash.
      	.global __bss_start
 
    Setup a few global symbols that get used elsewhere.  __BSS_START
-needs to be unchanged, as it’s setup by the linker script.
+needs to be unchanged, as it's setup by the linker script.
 
      /*
       * start -- set things up so the application will run.
@@ -712,7 +712,7 @@ memory map right.  You can do this by having the linker create a memory
 map (by using the ‘-Map’ option), or afterwards by using ‘nm’ to check a
 few critical addresses like ‘start’, ‘bss_end’, and ‘_etext’.
 
-   Here’s a breakdown of a linker script for a m68k based target board.
+   Here's a breakdown of a linker script for a m68k based target board.
 See the file ‘libgloss/m68k/idp.ld’, or go to the appendixes in the end
 of the manual.  *note Example Linker Script: idp.ld.
 
@@ -722,13 +722,13 @@ of the manual.  *note Example Linker Script: idp.ld.
      SEARCH_DIR(.)
      __DYNAMIC  =  0;
 
-   The ‘STARTUP’ command loads the file specified so that it’s first.
+   The ‘STARTUP’ command loads the file specified so that it's first.
 In this case it also doubles to load the file as well, because the
 m68k-coff configuration defaults to not linking in the crt0.o by
 default.  It assumes that the developer probably has their own crt0.o.
 This behavior is controlled in the config file for each architecture.
-It’s a macro called ‘STARTFILE_SPEC’, and if it’s set to ‘null’, then
-when ‘gcc’ formats it’s command line, it doesn’t add ‘crto.o’.  Any file
+It's a macro called ‘STARTFILE_SPEC’, and if it's set to ‘null’, then
+when ‘gcc’ formats it's command line, it doesn't add ‘crto.o’.  Any file
 name can be specified here, but the default is always ‘crt0.o’.
 
    Course if you only use ‘ld’ to link, then the control of whether or
@@ -740,10 +740,10 @@ add device support.
 
    The ‘OUTPUT_ARCH’ sets architecture the output file is for.
 
-   ‘INPUT’ loads in the file specified.  In this case, it’s a relocated
+   ‘INPUT’ loads in the file specified.  In this case, it's a relocated
 library that contains the definitions for the low-level functions need
 by libc.a.  This could have also been specified on the command line, but
-as it’s always needed, it might as well be here as a default.
+as it's always needed, it might as well be here as a default.
 ‘SEARCH_DIR’ specifies the path to look for files, and ‘_DYNAMIC’ means
 in this case there are no shared libraries.
 
@@ -758,7 +758,7 @@ in this case there are no shared libraries.
      }
 
    This specifies a name for a section that can be referred to later in
-the script.  In this case, it’s only a pointer to the beginning of free
+the script.  In this case, it's only a pointer to the beginning of free
 RAM space, with an upper limit at 2M. If the output file exceeds the
 upper limit, it will produce an error message.
 
@@ -828,7 +828,7 @@ initialized data goes.  ‘CONSTRUCTORS’ is a special command used by
 
    Setup the ‘.bss’ section.  In a ‘COFF’ file, this is where
 unitialized data goes.  The symbols ‘_bss_start’ and ‘_end’ are setup
-here for use by the ‘crt0.o’ when it zero’s the ‘.bss’ section.
+here for use by the ‘crt0.o’ when it zero's the ‘.bss’ section.
 
 
 File: porting.info,  Node: What to do now,  Next: Libc,  Prev: Linker Scripts,  Up: Libraries
@@ -838,8 +838,8 @@ File: porting.info,  Node: What to do now,  Next: Libc,  Prev: Linker Scripts,  
 
 A few ROM monitors load binary images, typically ‘a.out’, but most all
 will load an ‘srecord’.  An srecord is an ASCII representation of a
-binary image.  At it’s simplest, an srecord is an address, followed by a
-byte count, followed by the bytes, and a 2’s compliment checksum.  A
+binary image.  At it's simplest, an srecord is an address, followed by a
+byte count, followed by the bytes, and a 2's compliment checksum.  A
 whole srecord file has an optional _start_ record, and a required _end_
 record.  To make an srecord from a binary image, the GNU ‘objcopy’
 program is used.  This will read the image and make an srecord from it.
@@ -855,24 +855,24 @@ File: porting.info,  Node: Libc,  Prev: What to do now,  Up: Libraries
 
 This describes ‘newlib’, a freely available libc replacement.  Most
 applications use calls in the standard C library.  When initially
-linking in libc.a, several I/O functions are undefined.  If you don’t
-plan on doing any I/O, then you’re OK, otherwise they need to be
+linking in libc.a, several I/O functions are undefined.  If you don't
+plan on doing any I/O, then you're OK, otherwise they need to be
 created.  These routines are read, write, open, close.  sbrk, and kill.
-Open & close don’t need to be fully supported unless you have a
+Open & close don't need to be fully supported unless you have a
 filesystems, so typically they are stubbed out.  Kill is also a stub,
-since you can’t do process control on an embedded system.
+since you can't do process control on an embedded system.
 
    Sbrk() is only needed by applications that do dynamic memory
-allocation.  It’s uses the symbol ‘_end’ that is setup in the linker
+allocation.  It's uses the symbol ‘_end’ that is setup in the linker
 script.  It also requires a compile time option to set the upper size
 limit on the heap space.  This leaves us with read and write, which are
 required for serial I/O. Usually these two routines are written in C,
 and call a lower level function for the actual I/O operation.  These two
 lowest level I/O primitives are inbyte() and outbyte(), and are also
-used by GDB back ends if you’ve written an exception handler.  Some
+used by GDB back ends if you've written an exception handler.  Some
 systems also implement a havebyte() for input as well.
 
-   Other commonly included functions are routines for manipulating LED’s
+   Other commonly included functions are routines for manipulating LED's
 on the target (if they exist) or low level debug help.  Typically a
 putnum() for printing words and bytes as a hex number is helpful, as
 well as a low-level print() to output simple strings.
@@ -947,11 +947,11 @@ File: porting.info,  Node: Misc Support,  Next: Debugging,  Prev: Memory Support
 3.4.3 Misc support routines
 ---------------------------
 
-These are called by ‘newlib’ but don’t apply to the embedded
-environment.  ‘isatty()’ is self explanatory.  ‘kill()’ doesn’t apply
+These are called by ‘newlib’ but don't apply to the embedded
+environment.  ‘isatty()’ is self explanatory.  ‘kill()’ doesn't apply
 either in an environment withno process control, so it justs exits,
 which is a similar enough behavior.  ‘getpid()’ can safely return any
-value greater than 1.  The value doesn’t effect anything in ‘newlib’
+value greater than 1.  The value doesn't effect anything in ‘newlib’
 because once again there is no process control.
 
      /*
@@ -1071,7 +1071,7 @@ the segment location.  The bits look like:
                 -----
                   d
 
-   This takes a number that’s already been converted to a string, and
+   This takes a number that's already been converted to a string, and
 prints it.
 
      #define LED_ADDR	0xd00003
@@ -1175,14 +1175,14 @@ hex digits 0-9,a-f are used.
 is mainly to give a degree of error handling over the serial cable.  For
 each packet transmitted successfully, the target responds with a ‘+’
 (‘ACK’).  If there was a transmission error, then the target responds
-with a ‘-’ (‘NAK’).  An error is determined when the checksum doesn’t
+with a ‘-’ (‘NAK’).  An error is determined when the checksum doesn't
 match the calculated checksum for that data record.  Upon reciept of the
 ‘ACK’, ‘GDB’ can then transmit the next packet.
 
    Here is a list of the main functions that need to be supported.  Each
 data packet is a command with a set number of bytes in the command
 packet.  Most commands either return data, or respond with a ‘NAK’.
-Commands that don’t return data respond with an ‘ACK’.  All data values
+Commands that don't return data respond with an ‘ACK’.  All data values
 are ascii hex digits.  Every byte needs two hex digits to represent t.
 This means that a byte with the value ‘7’ becomes ‘07’.  On a 32 bit
 machine this works out to 8 characters per word.  All of the bytes in a
@@ -1278,7 +1278,7 @@ All other commands are optional, and not supported by all GDB backends.
      toggle debug flag (see 386 & 68k stubs)
 
 ‘reset	r’
-     reset – see sparc stub.
+     reset - see sparc stub.
 
 ‘reserved	‘other’’
      On other requests, the stub should ignore the request and send an
@@ -1307,8 +1307,8 @@ All other commands are optional, and not supported by all GDB backends.
 the next character is an ASCII encoding giving a repeat count which
 stands for that many repetitions of the character preceding the ‘*’.
 The encoding is n+29, yielding a printable character where n >=3 (which
-is where run length encoding starts to win).  You can’t use a value of
-where n >126 because it’s only a two byte value.  An example would be a
+is where run length encoding starts to win).  You can't use a value of
+where n >126 because it's only a two byte value.  An example would be a
 ‘0*03’ means the same thing as ‘0000’.
 
 
@@ -1320,11 +1320,11 @@ File: porting.info,  Node: Exception handler,  Next: ROM monitors,  Prev: GNU re
 A _GDB stub_ consists of two parts, support for the exception handler,
 and the exception handler itself.  The exception handler needs to
 communicate to GDB on the host whenever there is a breakpoint exception.
-When GDB starts a program running on the target, it’s polling the serial
+When GDB starts a program running on the target, it's polling the serial
 port during execution looking for any debug packets.  So when a
 breakpoint occurs, the exception handler needs to save state, and send a
 GDB remote protocol packet to GDB on the host.  GDB takes any output
-that isn’t a debug command packet and displays it in the command window.
+that isn't a debug command packet and displays it in the command window.
 
    Support for the exception handler varies between processors, but the
 minimum supported functions are those needed by GDB. These are functions
@@ -1350,7 +1350,7 @@ commands as a backend.  This consists mostly of sending and parsing
 ‘ASCII’ strings.  All the ROM monitor interfaces share a common set of
 routines in ‘gdb/monitor.c’.  This supports adding new ROM monitor
 interfaces by filling in a structure with the common commands GDB needs.
-GDb already supports several command ROM monitors, including Motorola’s
+GDb already supports several command ROM monitors, including Motorola's
 ‘Bug’ monitor for their VME boards, and the Rom68k monitor by Integrated
 Systems, Inc.  for various m68k based boards.  GDB also supports the
 custom ROM monitors on the WinBond and Oki PA based targets.  There is
@@ -2121,45 +2121,45 @@ A.6 Led control sample
 
 
 Tag Table:
-Node: Top791
-Node: Libgloss1580
-Node: Supported targets4779
-Node: Blackfin5317
-Node: Sparclite5592
-Node: CPU326518
-Node: Mips7838
-Node: PA-RISC9184
-Node: Building libgloss10727
-Node: Board support14403
-Node: Build System Internals16595
-Node: GCC18946
-Node: Overview20251
-Node: Options22514
-Node: GCC Options23190
-Node: GAS Options23507
-Node: LD Options23602
-Node: Libraries23677
-Node: Crt023989
-Node: Linker Scripts30314
-Node: What to do now35352
-Node: Libc36270
-Node: I/O Support38142
-Node: Memory Support38263
-Node: Misc Support39757
-Node: Debugging40956
-Node: GDB44561
-Node: GNU remote protocol45965
-Node: Exception handler52863
-Node: ROM monitors54298
-Node: Other remote protocols55294
-Node: Binutils55453
-Node: Code Listings55536
-Node: idp.ld56007
-Node: crt0.S57754
-Node: glue.c60357
-Node: mvme.S65245
-Node: io.c69392
-Node: leds.c70002
+Node: Top789
+Node: Libgloss1576
+Node: Supported targets4769
+Node: Blackfin5305
+Node: Sparclite5580
+Node: CPU326506
+Node: Mips7818
+Node: PA-RISC9156
+Node: Building libgloss10689
+Node: Board support14335
+Node: Build System Internals16527
+Node: GCC18874
+Node: Overview20177
+Node: Options22434
+Node: GCC Options23110
+Node: GAS Options23425
+Node: LD Options23520
+Node: Libraries23595
+Node: Crt023907
+Node: Linker Scripts30222
+Node: What to do now35240
+Node: Libc36154
+Node: I/O Support38012
+Node: Memory Support38133
+Node: Misc Support39627
+Node: Debugging40820
+Node: GDB44423
+Node: GNU remote protocol45827
+Node: Exception handler52715
+Node: ROM monitors54146
+Node: Other remote protocols55140
+Node: Binutils55299
+Node: Code Listings55382
+Node: idp.ld55853
+Node: crt0.S57600
+Node: glue.c60203
+Node: mvme.S65091
+Node: io.c69238
+Node: leds.c69848
 
 End Tag Table
 

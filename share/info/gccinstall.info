@@ -1,4 +1,4 @@
-This is gccinstall.info, produced by makeinfo version 7.0.3 from
+This is gccinstall.info, produced by makeinfo version 7.1 from
 install.texi.
 
 Copyright © 1988-2023 Free Software Foundation, Inc.
@@ -8,13 +8,13 @@ under the terms of the GNU Free Documentation License, Version 1.3 or
 any later version published by the Free Software Foundation; with no
 Invariant Sections, the Front-Cover texts being (a) (see below), and
 with the Back-Cover Texts being (b) (see below).  A copy of the license
-is included in the section entitled “GNU Free Documentation License”.
+is included in the section entitled "GNU Free Documentation License".
 
-   (a) The FSF’s Front-Cover Text is:
+   (a) The FSF's Front-Cover Text is:
 
    A GNU Manual
 
-   (b) The FSF’s Back-Cover Text is:
+   (b) The FSF's Back-Cover Text is:
 
    You have freedom to copy and modify this GNU Manual, like GNU
 software.  Copies published by the Free Software Foundation raise funds
@@ -31,13 +31,13 @@ under the terms of the GNU Free Documentation License, Version 1.3 or
 any later version published by the Free Software Foundation; with no
 Invariant Sections, the Front-Cover texts being (a) (see below), and
 with the Back-Cover Texts being (b) (see below).  A copy of the license
-is included in the section entitled “GNU Free Documentation License”.
+is included in the section entitled "GNU Free Documentation License".
 
-   (a) The FSF’s Front-Cover Text is:
+   (a) The FSF's Front-Cover Text is:
 
    A GNU Manual
 
-   (b) The FSF’s Back-Cover Text is:
+   (b) The FSF's Back-Cover Text is:
 
    You have freedom to copy and modify this GNU Manual, like GNU
 software.  Copies published by the Free Software Foundation raise funds
@@ -96,7 +96,7 @@ information becomes available.
 * Final install::
 
    Please note that GCC does not support ‘make uninstall’ and probably
-won’t do so in the near future as this would open a can of worms.
+won't do so in the near future as this would open a can of worms.
 Instead, we suggest that you install GCC into a directory of its own and
 simply remove that directory when you do not need that specific version
 of GCC any longer, and, if shared libraries are installed there as well,
@@ -199,7 +199,7 @@ GDC
      too old a GDC version is installed and ‘--enable-languages=d’ is
      used, the build will fail.
 
-     On some targets, ‘libphobos’ isn’t enabled by default, but compiles
+     On some targets, ‘libphobos’ isn't enabled by default, but compiles
      and works if ‘--enable-libphobos’ is used.  Specifics are
      documented for affected targets.
 
@@ -210,7 +210,7 @@ GM2
      Python3 is unavailable Modula-2 documentation will include a target
      independent version of the SYSTEM modules.
 
-A “working” POSIX compatible shell, or GNU bash
+A "working" POSIX compatible shell, or GNU bash
 
      Necessary when running ‘configure’ because some ‘/bin/sh’ shells
      have bugs and may crash when configuring the target libraries.  In
@@ -218,10 +218,10 @@ A “working” POSIX compatible shell, or GNU bash
      performance problems.  This can cause target ‘configure’ runs to
      literally take days to complete in some cases.
 
-     So on some platforms ‘/bin/ksh’ is sufficient, on others it isn’t.
+     So on some platforms ‘/bin/ksh’ is sufficient, on others it isn't.
      See the host/target specific instructions for your platform, or use
      ‘bash’ to be sure.  Then set ‘CONFIG_SHELL’ in your environment to
-     your “good” shell prior to running ‘configure’/‘make’.
+     your "good" shell prior to running ‘configure’/‘make’.
 
      ‘zsh’ is not a fully compliant POSIX shell and will not work when
      configuring GCC.
@@ -254,7 +254,7 @@ GNU make version 3.80 (or later)
 GNU tar version 1.14 (or later)
 
      Necessary (only on some platforms) to untar the source code.  Many
-     systems’ ‘tar’ programs will also work, only try GNU ‘tar’ if you
+     systems' ‘tar’ programs will also work, only try GNU ‘tar’ if you
      have problems.
 
 Perl version between 5.6.1 and 5.6.24
@@ -277,7 +277,7 @@ Perl version between 5.6.1 and 5.6.24
    Several support libraries are necessary to build GCC, some are
 required, others optional.  While any sufficiently new version of
 required tools usually work, library requirements are generally
-stricter.  Newer versions may work in some cases, but it’s safer to use
+stricter.  Newer versions may work in some cases, but it's safer to use
 the exact versions documented.  We appreciate bug reports about problems
 with newer versions, though.  If your OS vendor provides packages for
 the support libraries then using those packages may be the simplest way
@@ -462,7 +462,7 @@ GNU diffutils version 2.7 (or later)
 
 patch version 2.5.4 (or later)
 
-     Necessary when applying patches, created with ‘diff’, to one’s own
+     Necessary when applying patches, created with ‘diff’, to one's own
      sources.
 
 
@@ -520,7 +520,7 @@ can be found, and not its ‘gcc’ subdirectory, otherwise the build will
 fail.
 
    If either SRCDIR or OBJDIR is located on an automounted NFS file
-system, the shell’s built-in ‘pwd’ command will return temporary
+system, the shell's built-in ‘pwd’ command will return temporary
 pathnames.  Using these can lead to various sorts of build problems.  To
 avoid this issue, set the ‘PWDCMD’ environment variable to an
 automounter-aware ‘pwd’ command, e.g., ‘pawd’ or ‘amq -w’, during the
@@ -529,14 +529,14 @@ configuration and build phases.
    First, we *highly* recommend that GCC be built into a separate
 directory from the sources which does *not* reside within the source
 tree.  This is how we generally build GCC; building where SRCDIR ==
-OBJDIR should still work, but doesn’t get extensive testing; building
+OBJDIR should still work, but doesn't get extensive testing; building
 where OBJDIR is a subdirectory of SRCDIR is unsupported.
 
    If you have previously built GCC in the same directory for a
 different target machine, do ‘make distclean’ to delete all files that
 might be invalid.  One of the files this deletes is ‘Makefile’; if ‘make
 distclean’ complains that ‘Makefile’ does not exist or issues a message
-like “don’t know how to make distclean” it probably means that the
+like "don't know how to make distclean" it probably means that the
 directory is already suitably clean.  However, with the recommended
 method of building in a separate OBJDIR, you should simply use a
 different OBJDIR for each target.
@@ -572,7 +572,7 @@ to make clear that your version contains modifications.
      the FSF, if you determine that they are not bugs in your
      modifications.
 
-     The default value refers to the FSF’s GCC bug tracker.
+     The default value refers to the FSF's GCC bug tracker.
 
 ‘--with-documentation-root-url=URL’
      Specify the URL root that contains GCC option documentation.  The
@@ -602,11 +602,11 @@ which you want the compiler to generate code.
 runs on (a native compiler), you normally do not need to specify any
 operands to ‘configure’; it will try to guess the type of machine you
 are on and use that as the build, host and target machines.  So you
-don’t need to specify a configuration when building a native compiler
+don't need to specify a configuration when building a native compiler
 unless ‘configure’ cannot figure out what your configuration is or
 guesses wrong.
 
-   In those cases, specify the build machine’s “configuration name” with
+   In those cases, specify the build machine's “configuration name” with
 the ‘--host’ option; the host and target will default to be the same as
 the host machine.
 
@@ -665,7 +665,7 @@ option.
 
      We *highly* recommend against DIRNAME being the same or a
      subdirectory of OBJDIR or vice versa.  If specifying a directory
-     beneath a user’s home directory tree, some shells will not expand
+     beneath a user's home directory tree, some shells will not expand
      DIRNAME correctly if it contains the ‘~’ metacharacter; use ‘$HOME’
      instead.
 
@@ -734,7 +734,7 @@ option.
      ‘--with-specs=SPECS’
           Specify additional command line driver SPECS. This can be
           useful if you need to turn on a non-standard feature by
-          default without modifying the compiler’s source code, for
+          default without modifying the compiler's source code, for
           instance
           ‘--with-specs=%{!fcommon:%{!fno-common:-fno-common}}’.  *Note
           Specifying subprocesses and the switches to pass to them:
@@ -770,14 +770,14 @@ option.
      happen with a special transformation script PATTERN.
 
      As currently implemented, this option only takes effect for native
-     builds; cross compiler binaries’ names are not transformed even
+     builds; cross compiler binaries' names are not transformed even
      when a transformation is explicitly asked for by one of these
      options.
 
      For native builds, some of the installed programs are also
      installed with the target alias in front of their name, as in
      ‘i686-pc-linux-gnu-gcc’.  All of the above transformations happen
-     before the target alias is prepended to the name—so, specifying
+     before the target alias is prepended to the name--so, specifying
      ‘--program-prefix=foo-’ and ‘program-suffix=-3.1’, the resulting
      binary would be installed as
      ‘/usr/local/bin/i686-pc-linux-gnu-foo-gcc-3.1’.
@@ -801,13 +801,13 @@ option.
      This may seem counterintuitive, but actually it is logical.
 
      The purpose of ‘--prefix’ is to specify where to _install GCC_. The
-     local header files in ‘/usr/local/include’—if you put any in that
-     directory—are not part of GCC.  They are part of other
-     programs—perhaps many others.  (GCC installs its own header files
+     local header files in ‘/usr/local/include’--if you put any in that
+     directory--are not part of GCC.  They are part of other
+     programs--perhaps many others.  (GCC installs its own header files
      in another directory which is based on the ‘--prefix’ value.)
 
      Both the local-prefix include directory and the GCC-prefix include
-     directory are part of GCC’s “system include” directories.  Although
+     directory are part of GCC's "system include" directories.  Although
      these two directories are not fixed, they need to be searched in
      the proper order for the correct processing of the include_next
      directive.  The local-prefix include directory is searched before
@@ -817,7 +817,7 @@ option.
 
      Some autoconf macros add ‘-I DIRECTORY’ options to the compiler
      command line, to ensure that directories containing installed
-     packages’ headers are searched.  When DIRECTORY is one of GCC’s
+     packages' headers are searched.  When DIRECTORY is one of GCC's
      system include directories, GCC will ignore the option so that
      system directories continue to be processed in the correct order.
      This may result in a search order different from what was specified
@@ -846,7 +846,7 @@ option.
 
      *Do not* specify ‘/usr’ as the ‘--with-local-prefix’!  The
      directory you use for ‘--with-local-prefix’ *must not* contain any
-     of the system’s standard header files.  If it did contain them,
+     of the system's standard header files.  If it did contain them,
      certain programs would be miscompiled (including GNU Emacs, on
      certain targets), because this would override and nullify the
      header file corrections made by the ‘fixincludes’ script.
@@ -1029,7 +1029,7 @@ option.
           enable ILP32 and LP64 run-time libraries, respectively.  If
           LIST is empty, then there will be no multilibs and only the
           default run-time library will be built.  If LIST is ‘default’
-          or –with-multilib-list= is not specified, then the default set
+          or -with-multilib-list= is not specified, then the default set
           of libraries is selected based on the value of ‘--target’.
 
      ‘arm*-*-*’
@@ -1541,7 +1541,7 @@ option.
 ‘--enable-version-specific-runtime-libs’
      Specify that runtime libraries should be installed in the compiler
      specific subdirectory (‘LIBDIR/gcc’) rather than the usual places.
-     In addition, ‘libstdc++’’s include files will be installed into
+     In addition, ‘libstdc++’'s include files will be installed into
      ‘LIBDIR’ unless you overruled it by using
      ‘--with-gxx-include-dir=DIRNAME’.  Using this option is
      particularly useful if you intend to use several versions of GCC in
@@ -1791,7 +1791,7 @@ option.
 ‘--enable-werror=no’
      When you specify this option, it controls whether certain files in
      the compiler are built with ‘-Werror’ in bootstrap stage2 and
-     later.  If you don’t specify it, ‘-Werror’ is turned on for the
+     later.  If you don't specify it, ‘-Werror’ is turned on for the
      main development trunk.  However it defaults to off for release
      branches and final releases.  The specific files which get
      ‘-Werror’ are controlled by the Makefiles.
@@ -1885,9 +1885,9 @@ option.
 ‘--with-catgets’
      If NLS is enabled, and if the host lacks ‘gettext’ but has the
      inferior ‘catgets’ interface, the GCC build procedure normally
-     ignores ‘catgets’ and instead uses GCC’s copy of the GNU ‘gettext’
+     ignores ‘catgets’ and instead uses GCC's copy of the GNU ‘gettext’
      library.  The ‘--with-catgets’ option causes the build procedure to
-     use the host’s ‘catgets’ in this situation.
+     use the host's ‘catgets’ in this situation.
 
 ‘--with-libiconv-prefix=DIR’
      Search for libiconv header files in ‘DIR/include’ and libiconv
@@ -2019,7 +2019,7 @@ option.
 
 ‘--with-boot-ldflags=FLAGS’
      This option may be used to set linker flags to be used when linking
-     stage 2 and later when bootstrapping GCC. If –with-boot-libs is not
+     stage 2 and later when bootstrapping GCC. If -with-boot-libs is not
      is set to a value, then the default is ‘-static-libstdc++
      -static-libgcc’.
 
@@ -2109,7 +2109,7 @@ option.
 ‘--with-glibc-version=MAJOR.MINOR’
      Tell GCC that when the GNU C Library (glibc) is used on the target
      it will be version MAJOR.MINOR or later.  Normally this can be
-     detected from the C library’s header files, but this option may be
+     detected from the C library's header files, but this option may be
      needed when bootstrapping a cross toolchain without the header
      files available for building the initial bootstrap compiler.
 
@@ -2167,7 +2167,7 @@ option.
      ‘--std=c99’ or ‘-fexcess-precision=standard’ are given).
 
      For a native build and cross compiles that have target headers, the
-     option’s default is derived from glibc’s behavior.  When glibc
+     option's default is derived from glibc's behavior.  When glibc
      clamps float_t to double, GCC follows and enables the option.  For
      other cross compiles, the default is disabled.
 
@@ -2245,7 +2245,7 @@ The following options only apply to building cross compilers.
      argument specifies a directory which has the target include files.
      These include files will be copied into the ‘gcc’ install
      directory.  _This option with the DIR argument is required_ when
-     building a cross compiler, if ‘PREFIX/TARGET/sys-include’ doesn’t
+     building a cross compiler, if ‘PREFIX/TARGET/sys-include’ doesn't
      pre-exist.  If ‘PREFIX/TARGET/sys-include’ does pre-exist, the DIR
      argument may be omitted.  ‘fixincludes’ will be run on these files
      to make them compatible with GCC.
@@ -2299,8 +2299,8 @@ The following options only apply to building cross compilers.
      are valid.  For example, the combination ‘--with-double=32,64’
      ‘--with-long-double=32’ will be rejected because the first option
      specifies the availability of multilibs for ‘double’, whereas the
-     second option implies that ‘long double’ — and hence also ‘double’
-     — is always 32 bits wide.
+     second option implies that ‘long double’ -- and hence also ‘double’
+     -- is always 32 bits wide.
 
 ‘--with-double-comparison={tristate|bool|libf7}’
      Only supported for the AVR target since version 10.  Specify what
@@ -2319,7 +2319,7 @@ The following options only apply to building cross compilers.
      one would expect in ‘libm.a’, but with ‘__’ (two underscores)
      prepended to the symbol names as specified by ‘math.h’.
      ‘math-symbols’ also defines weak aliases for the functions declared
-     in ‘math.h’.  However, ‘--with-libf7’ won’t install no ‘math.h’
+     in ‘math.h’.  However, ‘--with-libf7’ won't install no ‘math.h’
      header file whatsoever, this file must come from elsewhere.  This
      option sets ‘--with-double-comparison’ to ‘bool’.
 
@@ -2478,7 +2478,7 @@ directory.  Make sure you have done all the necessary preparations.
 
    If you build GCC on a BSD system using a directory stored in an old
 System V file system, problems may occur in running ‘fixincludes’ if the
-System V file system doesn’t support symbolic links.  These problems
+System V file system doesn't support symbolic links.  These problems
 result in a failure to fix the declaration of ‘size_t’ in ‘sys/types.h’.
 If you find that ‘size_t’ is a signed type and that type mismatches
 occur, this could be the cause.
@@ -2559,7 +2559,7 @@ work around this by avoiding non-working parts of the stage1 compiler.
 Use ‘STAGE1_TFLAGS’ to this end.
 
    If you used the flag ‘--enable-languages=...’ to restrict the
-compilers to be built, only those you’ve actually enabled will be built.
+compilers to be built, only those you've actually enabled will be built.
 This will of course only build those runtime libraries, for which the
 particular compiler has been built.  Please note, that re-defining
 ‘LANGUAGES’ when calling ‘make’ *does not* work anymore!
@@ -2568,7 +2568,7 @@ particular compiler has been built.  Please note, that re-defining
 that the stage2 compiler has compiled GCC incorrectly, and is therefore
 a potentially serious bug which you should investigate and report.  (On
 a few systems, meaningful comparison of object files is impossible; they
-always appear “different”.  If you encounter this problem, you will need
+always appear "different".  If you encounter this problem, you will need
 to disable comparison in the ‘Makefile’.)
 
    If you do not want to bootstrap your compiler, you can configure with
@@ -2622,7 +2622,7 @@ configurations are:
      this option builds stage2 host programs without debug information,
      and uses ‘contrib/compare-debug’ to compare them with the stripped
      stage3 object files.  If ‘BOOT_CFLAGS’ is overridden so as to not
-     enable debug information, stage2 will have it, and stage3 won’t.
+     enable debug information, stage2 will have it, and stage3 won't.
      This option is enabled by default when GCC bootstrapping is
      enabled, if ‘strip’ can turn object files compiled with and without
      debug info into identical object files.  In addition to better test
@@ -2650,10 +2650,10 @@ configurations are:
      ‘-fcompare-debug’, and it can be used along with any of the
      ‘bootstrap-debug’ options above.
 
-     There aren’t ‘-lean’ or ‘-big’ counterparts to this option because
+     There aren't ‘-lean’ or ‘-big’ counterparts to this option because
      most libraries are only build in stage3, so bootstrap compares
      would not get significant coverage.  Moreover, the few libraries
-     built in stage2 are used in stage3 host programs, so we wouldn’t
+     built in stage2 are used in stage3 host programs, so we wouldn't
      want to compile stage2 libraries with different options for
      comparison purposes.
 
@@ -2727,7 +2727,7 @@ is a table of the tools you should put in this directory:
 
 ‘ar’
      This should be the cross-archiver: a program which can manipulate
-     archive files (linker libraries) in the target machine’s format.
+     archive files (linker libraries) in the target machine's format.
 
 ‘ranlib’
      This should be a program to construct a symbol table in an archive
@@ -2746,10 +2746,10 @@ Alas, they do not support all the targets that GCC supports.
    If you are not building a C library in the same source tree as GCC,
 you should also provide the target libraries and headers before
 configuring GCC, specifying the directories with ‘--with-sysroot’ or
-‘--with-headers’ and ‘--with-libs’.  Many targets also require “start
-files” such as ‘crt0.o’ and ‘crtn.o’ which are linked into each
+‘--with-headers’ and ‘--with-libs’.  Many targets also require "start
+files" such as ‘crt0.o’ and ‘crtn.o’ which are linked into each
 executable.  There may be several alternatives for ‘crt0.o’, for use
-with profiling or other compilation options.  Check your target’s
+with profiling or other compilation options.  Check your target's
 definition of ‘STARTFILE_SPEC’ to find out what start files it uses.
 
 5.3 Building in parallel
@@ -2866,7 +2866,7 @@ testsuite is to use
 
      make check-gcc RUNTESTFLAGS="execute.exp OTHER-OPTIONS"
 
-   Likewise, in order to run only the ‘g++’ “old-deja” tests in the
+   Likewise, in order to run only the ‘g++’ "old-deja" tests in the
 testsuite with filenames matching ‘9805*’, you would use
 
      make check-g++ RUNTESTFLAGS="old-deja.exp=9805* OTHER-OPTIONS"
@@ -2896,7 +2896,7 @@ the makefiles.  For example,
 
      make check-g++ RUNTESTFLAGS="--target_board=unix/-O3/-fmerge-constants"
 
-   will run the standard ‘g++’ testsuites (“unix” is the target name for
+   will run the standard ‘g++’ testsuites ("unix" is the target name for
 a standard native testsuite situation), passing ‘-O3 -fmerge-constants’
 to the compiler on every test, i.e., slashes separate options.
 
@@ -2939,7 +2939,7 @@ special makefile target:
 
      make -j3 check-gcc//sh-hms-sim/{-m1,-m2,-m3,-m3e,-m4}/{,-nofpu}
 
-   will run three concurrent “make-gcc” testsuites, eventually testing
+   will run three concurrent "make-gcc" testsuites, eventually testing
 all ten combinations as described above.  Note that this is currently
 only supported in the ‘gcc’ subdirectory.  (To see how this works, try
 typing ‘echo’ before the example given here.)
@@ -3008,7 +3008,7 @@ for the C++ library are installed in ‘PREFIX/include’; libraries in
 ‘LIBDIR/gcc’ and ‘LIBEXECDIR/gcc’; documentation in info format in
 ‘INFODIR’ (normally ‘PREFIX/info’).
 
-   When installing cross-compilers, GCC’s executables are not only
+   When installing cross-compilers, GCC's executables are not only
 installed into ‘BINDIR’, that is, ‘EXEC-PREFIX/bin’, but additionally
 into ‘EXEC-PREFIX/TARGET-ALIAS/bin’, if that directory exists.
 Typically, such “tooldirs” hold target-specific binutils, including
@@ -3087,8 +3087,8 @@ following information:
      status list will include a link to the archived copy of your
      message.
 
-   We’d also like to know if the *note host/target specific installation
-notes: Specific. didn’t include your host/target information or if that
+   We'd also like to know if the *note host/target specific installation
+notes: Specific. didn't include your host/target information or if that
 information is incomplete or out of date.  Send a note to
 <gcc@gcc.gnu.org> detailing how the information should be changed.
 
@@ -3102,7 +3102,7 @@ File: gccinstall.info,  Node: Binaries,  Next: Specific,  Prev: Installing GCC, 
 **************************
 
 We are often asked about pre-compiled versions of GCC.  While we cannot
-provide these for all platforms, below you’ll find links to binaries for
+provide these for all platforms, below you'll find links to binaries for
 various platforms where creating them by yourself is not easy due to
 various reasons.
 
@@ -3113,7 +3113,7 @@ makers.
    • AIX:
         • AIX Open Source Packages (AIX5L AIX 6.1 AIX 7.1).
 
-   • DOS—DJGPP.
+   • DOS--DJGPP.
 
    • HP-UX:
         • HP-UX Porting Center;
@@ -3351,7 +3351,7 @@ later is recommended.
 ‘--with-as=...’ options to ensure that GCC can find GAS.
 
    The HP assembler should not be used with GCC. It is rarely tested and
-may not work.  It shouldn’t be used with any languages other than C due
+may not work.  It shouldn't be used with any languages other than C due
 to its many limitations.
 
    Specifically, ‘-g’ does not work (HP-UX uses a peculiar debugging
@@ -3407,7 +3407,7 @@ hppa*-hp-hpux11
 GCC 3.0 and up support HP-UX 11.  GCC 2.95.x is not supported and cannot
 be used to compile GCC 3.0 and up.
 
-   The libffi library haven’t been ported to 64-bit HP-UX and doesn’t
+   The libffi library haven't been ported to 64-bit HP-UX and doesn't
 build.
 
    Refer to binaries for information about obtaining precompiled GCC
@@ -3417,7 +3417,7 @@ available for the 32-bit PA-RISC runtime.
 
    Starting with GCC 3.4 an ISO C compiler is required to bootstrap.
 The bundled compiler supports only traditional C; you will need either
-HP’s unbundled compiler, or a binary distribution of GCC.
+HP's unbundled compiler, or a binary distribution of GCC.
 
    It is possible to build GCC 3.3 starting with the bundled HP
 compiler, but the process requires several steps.  GCC 3.3 can then be
@@ -3453,13 +3453,13 @@ selection of the ‘hppa64-hp-hpux11*’ target.  The macro definition table
 of cpp needs to be increased for a successful build with the HP
 compiler.  _CLASSIC_TYPES and _HPUX_SOURCE need to be defined when
 building with the bundled compiler, or when using the ‘-Ac’ option.
-These defines aren’t necessary with ‘-Ae’.
+These defines aren't necessary with ‘-Ae’.
 
    It is best to explicitly configure the ‘hppa64-hp-hpux11*’ target
 with the ‘--with-ld=...’ option.  This overrides the standard search for
 ld.  The two linkers supported on this target require different
 commands.  The default linker is determined during configuration.  As a
-result, it’s not possible to switch linkers in the middle of a GCC
+result, it's not possible to switch linkers in the middle of a GCC
 build.  This has been reported to sometimes occur in unified builds of
 binutils and GCC.
 
@@ -3467,7 +3467,7 @@ binutils and GCC.
 GCC 3.3 and later.  ‘PHSS_26559’ and ‘PHSS_24304’ are the oldest linker
 patches that are known to work.  They are for HP-UX 11.00 and 11.11,
 respectively.  ‘PHSS_24303’, the companion to ‘PHSS_24304’, might be
-usable but it hasn’t been tested.  These patches have been superseded.
+usable but it hasn't been tested.  These patches have been superseded.
 Consult the HP patch database to obtain the currently recommended linker
 patch for your system.
 
@@ -3484,7 +3484,7 @@ run initializers and finalizers on the 64-bit port.  The 32-bit port
 uses the linker ‘+init’ and ‘+fini’ options for the same purpose.  The
 patches correct various problems with the +init/+fini options, including
 program core dumps.  Binutils 2.14 corrects a problem on the 64-bit port
-resulting from HP’s non-standard use of the .init and .fini sections for
+resulting from HP's non-standard use of the .init and .fini sections for
 array initializers and finalizers.
 
    Although the HP and GNU linkers are both supported for the
@@ -3496,7 +3496,7 @@ branch stubs.  As a result, it cannot successfully link binaries
 containing branch offsets larger than 8 megabytes.  In addition, there
 are problems linking shared libraries, linking executables with
 ‘-static’, and with dwarf2 unwind and exception support.  It also
-doesn’t provide stubs for internal calls to global functions in shared
+doesn't provide stubs for internal calls to global functions in shared
 libraries, so these calls cannot be overloaded.
 
    The HP dynamic loader does not support GNU symbol versioning, so
@@ -3562,7 +3562,7 @@ the system libunwind library will always be used.
 Support for AIX version 3 and older was discontinued in GCC 3.4.
 Support for AIX version 4.2 and older was discontinued in GCC 4.5.
 
-   “out of memory” bootstrap failures may indicate a problem with
+   "out of memory" bootstrap failures may indicate a problem with
 process resource limits (ulimit).  Hard limits are configured in the
 ‘/etc/security/limits’ system configuration file.
 
@@ -3579,7 +3579,7 @@ LDR_CNTRL environment variable, e.g.,
      % export LDR_CNTRL
 
    One can start with a pre-compiled version of GCC to build from
-sources.  One may delete GCC’s “fixed” header files when starting with a
+sources.  One may delete GCC's "fixed" header files when starting with a
 version of GCC built for an earlier release of AIX.
 
    To speed up the configuration phases of bootstrapping and installing
@@ -3666,14 +3666,14 @@ and function declarations in the original program.  The warnings should
 not prevent the linker from producing a correct library or runnable
 executable.
 
-   AIX 4.3 utilizes a “large format” archive to support both 32-bit and
+   AIX 4.3 utilizes a "large format" archive to support both 32-bit and
 64-bit object modules.  The routines provided in AIX 4.3.0 and AIX 4.3.1
 to parse archive libraries did not handle the new format correctly.
 These routines are used by GCC and result in error messages during
-linking such as “not a COFF file”.  The version of the routines shipped
+linking such as "not a COFF file".  The version of the routines shipped
 with AIX 4.3.1 should work for a 32-bit environment.  The ‘-g’ option of
 the archive command may be used to create archives of 32-bit objects
-using the original “small format”.  A correct version of the routines is
+using the original "small format".  A correct version of the routines is
 shipped with AIX 4.3.2 and above.
 
    Some versions of the AIX binder (linker) can fail with a relocation
@@ -3797,8 +3797,8 @@ embedded systems.
 mips-*-*
 ========
 
-If on a MIPS system you get an error message saying “does not have gp
-sections for all it’s [sic] sectons [sic]”, don’t worry about it.  This
+If on a MIPS system you get an error message saying "does not have gp
+sections for all it's [sic] sectons [sic]", don't worry about it.  This
 happens whenever you use GAS with the MIPS linker, but there is not
 really anything wrong, and it is okay to use the output file.  You can
 stop such warnings by installing the GNU linker.
@@ -3874,7 +3874,7 @@ GCC where to find it:
 ‘--with-build-time-tools=[install-nvptx-tools]/nvptx-none/bin’.
 
    You will need newlib 4.3.0 or later.  It can be automatically built
-together with GCC.  For this, add a symbolic link to nvptx-newlib’s
+together with GCC.  For this, add a symbolic link to nvptx-newlib's
 ‘newlib’ directory to the directory containing the GCC sources.
 
    Use the ‘--disable-sjlj-exceptions’ and
@@ -4059,7 +4059,7 @@ the LTO linker plugin (‘-fuse-linker-plugin’) with GNU ‘ld’, GNU
 binutils _must_ be configured with ‘--enable-largefile’.  To use Solaris
 ‘ld’, we recommend to configure with ‘--without-gnu-ld
 --with-ld=/usr/bin/ld’ to guarantee the right linker is found
-irrespective of the user’s ‘PATH’.
+irrespective of the user's ‘PATH’.
 
    Note that your mileage may vary if you use a combination of the GNU
 tools and the Solaris tools: while the combination GNU ‘as’ and Solaris
@@ -4078,14 +4078,14 @@ needed.  Since Solaris 11.4 SRU 39, GNAT 11 or 12 is bundled in the
 ‘developer/gcc/gcc-gnat’ package.
 
    In order to build the GNU D compiler, GDC, a working ‘libphobos’ is
-needed.  That library wasn’t built by default in GCC 9–11 on SPARC, or
+needed.  That library wasn't built by default in GCC 9-11 on SPARC, or
 on x86 when the Solaris assembler is used, but can be enabled by
 configuring with ‘--enable-libphobos’.  Also, GDC 9.4.0 is required on
 x86, while GDC 9.3.0 is known to work on SPARC.
 
    The versions of the GNU Multiple Precision Library (GMP), the MPFR
 library and the MPC library bundled with Solaris 11.3 and later are
-usually recent enough to match GCC’s requirements.  There are two
+usually recent enough to match GCC's requirements.  There are two
 caveats:
 
    • While the version of the GMP library in Solaris 11.3 works with
@@ -4173,7 +4173,7 @@ Support for VxWorks is in flux.  At present GCC supports _only_ the very
 recent VxWorks 5.5 (aka Tornado 2.2) release, and only on PowerPC.  We
 welcome patches for other architectures supported by VxWorks 5.5.
 Support for VxWorks AE would also be welcome; we believe this is merely
-a matter of writing an appropriate “configlette” (see below).  We are
+a matter of writing an appropriate "configlette" (see below).  We are
 not interested in supporting older, a.out or COFF-based, versions of
 VxWorks in GCC 3.
 
@@ -4192,7 +4192,7 @@ a cross compilation target only, you must also specify
 ‘PREFIX/TARGET/sys-include’ and copy files into it; make sure the user
 running ‘configure’ has sufficient privilege to do so.
 
-   GCC’s exception handling runtime requires a special “configlette”
+   GCC's exception handling runtime requires a special "configlette"
 module, ‘contrib/gthr_supp_vxw_5x.c’.  Follow the instructions in that
 file to add the module to your kernel build.  (Future versions of
 VxWorks will incorporate this module.)
@@ -4301,7 +4301,7 @@ used.
 Ports of GCC are included with the Cygwin environment.
 
    GCC will build under Cygwin without modification; it does not build
-with Microsoft’s C++ compiler and there are no plans to make it do so.
+with Microsoft's C++ compiler and there are no plans to make it do so.
 
    The Cygwin native compiler can be configured to target any 32-bit x86
 cpu architecture desired; the default is i686-pc-cygwin.  It should be
@@ -4328,7 +4328,7 @@ variants.  For the most part, support for these systems has not been
 deliberately removed, but it has not been maintained for several years
 and may suffer from bitrot.
 
-   Starting with GCC 3.1, each release has a list of “obsoleted”
+   Starting with GCC 3.1, each release has a list of "obsoleted"
 systems.  Support for these systems is still present in that release,
 but ‘configure’ will fail unless the ‘--enable-obsolete’ option is
 given.  Unless a maintainer steps forward, support for these systems
@@ -4393,7 +4393,7 @@ GNU Free Documentation License
      author and publisher a way to get credit for their work, while not
      being considered responsible for modifications made by others.
 
-     This License is a kind of “copyleft”, which means that derivative
+     This License is a kind of "copyleft", which means that derivative
      works of the document must themselves be free in the same sense.
      It complements the GNU General Public License, which is a copyleft
      license designed for free software.
@@ -4414,18 +4414,18 @@ GNU Free Documentation License
      be distributed under the terms of this License.  Such a notice
      grants a world-wide, royalty-free license, unlimited in duration,
      to use that work under the conditions stated herein.  The
-     “Document”, below, refers to any such manual or work.  Any member
-     of the public is a licensee, and is addressed as “you”.  You accept
+     "Document", below, refers to any such manual or work.  Any member
+     of the public is a licensee, and is addressed as "you".  You accept
      the license if you copy, modify or distribute the work in a way
      requiring permission under copyright law.
 
-     A “Modified Version” of the Document means any work containing the
+     A "Modified Version" of the Document means any work containing the
      Document or a portion of it, either copied verbatim, or with
      modifications and/or translated into another language.
 
-     A “Secondary Section” is a named appendix or a front-matter section
+     A "Secondary Section" is a named appendix or a front-matter section
      of the Document that deals exclusively with the relationship of the
-     publishers or authors of the Document to the Document’s overall
+     publishers or authors of the Document to the Document's overall
      subject (or to related matters) and contains nothing that could
      fall directly within that overall subject.  (Thus, if the Document
      is in part a textbook of mathematics, a Secondary Section may not
@@ -4434,7 +4434,7 @@ GNU Free Documentation License
      of legal, commercial, philosophical, ethical or political position
      regarding them.
 
-     The “Invariant Sections” are certain Secondary Sections whose
+     The "Invariant Sections" are certain Secondary Sections whose
      titles are designated, as being those of Invariant Sections, in the
      notice that says that the Document is released under this License.
      If a section does not fit the above definition of Secondary then it
@@ -4442,13 +4442,13 @@ GNU Free Documentation License
      contain zero Invariant Sections.  If the Document does not identify
      any Invariant Sections then there are none.
 
-     The “Cover Texts” are certain short passages of text that are
+     The "Cover Texts" are certain short passages of text that are
      listed, as Front-Cover Texts or Back-Cover Texts, in the notice
      that says that the Document is released under this License.  A
      Front-Cover Text may be at most 5 words, and a Back-Cover Text may
      be at most 25 words.
 
-     A “Transparent” copy of the Document means a machine-readable copy,
+     A "Transparent" copy of the Document means a machine-readable copy,
      represented in a format whose specification is available to the
      general public, that is suitable for revising the document
      straightforwardly with generic text editors or (for images composed
@@ -4460,7 +4460,7 @@ GNU Free Documentation License
      been arranged to thwart or discourage subsequent modification by
      readers is not Transparent.  An image format is not Transparent if
      used for any substantial amount of text.  A copy that is not
-     “Transparent” is called “Opaque”.
+     "Transparent" is called "Opaque".
 
      Examples of suitable formats for Transparent copies include plain
      ASCII without markup, Texinfo input format, LaTeX input format,
@@ -4473,23 +4473,23 @@ GNU Free Documentation License
      the machine-generated HTML, PostScript or PDF produced by some word
      processors for output purposes only.
 
-     The “Title Page” means, for a printed book, the title page itself,
+     The "Title Page" means, for a printed book, the title page itself,
      plus such following pages as are needed to hold, legibly, the
      material this License requires to appear in the title page.  For
-     works in formats which do not have any title page as such, “Title
-     Page” means the text near the most prominent appearance of the
-     work’s title, preceding the beginning of the body of the text.
+     works in formats which do not have any title page as such, "Title
+     Page" means the text near the most prominent appearance of the
+     work's title, preceding the beginning of the body of the text.
 
-     The “publisher” means any person or entity that distributes copies
+     The "publisher" means any person or entity that distributes copies
      of the Document to the public.
 
-     A section “Entitled XYZ” means a named subunit of the Document
+     A section "Entitled XYZ" means a named subunit of the Document
      whose title either is precisely XYZ or contains XYZ in parentheses
      following text that translates XYZ in another language.  (Here XYZ
      stands for a specific section name mentioned below, such as
-     “Acknowledgements”, “Dedications”, “Endorsements”, or “History”.)
-     To “Preserve the Title” of such a section when you modify the
-     Document means that it remains a section “Entitled XYZ” according
+     "Acknowledgements", "Dedications", "Endorsements", or "History".)
+     To "Preserve the Title" of such a section when you modify the
+     Document means that it remains a section "Entitled XYZ" according
      to this definition.
 
      The Document may include Warranty Disclaimers next to the notice
@@ -4519,7 +4519,7 @@ GNU Free Documentation License
 
      If you publish printed copies (or copies in media that commonly
      have printed covers) of the Document, numbering more than 100, and
-     the Document’s license notice requires Cover Texts, you must
+     the Document's license notice requires Cover Texts, you must
      enclose the copies in covers that carry, clearly and legibly, all
      these Cover Texts: Front-Cover Texts on the front cover, and
      Back-Cover Texts on the back cover.  Both covers must also clearly
@@ -4591,15 +4591,15 @@ GNU Free Documentation License
           the Addendum below.
 
        G. Preserve in that license notice the full lists of Invariant
-          Sections and required Cover Texts given in the Document’s
+          Sections and required Cover Texts given in the Document's
           license notice.
 
        H. Include an unaltered copy of this License.
 
-       I. Preserve the section Entitled “History”, Preserve its Title,
+       I. Preserve the section Entitled "History", Preserve its Title,
           and add to it an item stating at least the title, year, new
           authors, and publisher of the Modified Version as given on the
-          Title Page.  If there is no section Entitled “History” in the
+          Title Page.  If there is no section Entitled "History" in the
           Document, create one stating the title, year, authors, and
           publisher of the Document as given on its Title Page, then add
           an item describing the Modified Version as stated in the
@@ -4609,12 +4609,12 @@ GNU Free Documentation License
           for public access to a Transparent copy of the Document, and
           likewise the network locations given in the Document for
           previous versions it was based on.  These may be placed in the
-          “History” section.  You may omit a network location for a work
+          "History" section.  You may omit a network location for a work
           that was published at least four years before the Document
           itself, or if the original publisher of the version it refers
           to gives permission.
 
-       K. For any section Entitled “Acknowledgements” or “Dedications”,
+       K. For any section Entitled "Acknowledgements" or "Dedications",
           Preserve the Title of the section, and preserve in the section
           all the substance and tone of each of the contributor
           acknowledgements and/or dedications given therein.
@@ -4623,11 +4623,11 @@ GNU Free Documentation License
           in their text and in their titles.  Section numbers or the
           equivalent are not considered part of the section titles.
 
-       M. Delete any section Entitled “Endorsements”.  Such a section
+       M. Delete any section Entitled "Endorsements".  Such a section
           may not be included in the Modified Version.
 
        N. Do not retitle any existing section to be Entitled
-          “Endorsements” or to conflict in title with any Invariant
+          "Endorsements" or to conflict in title with any Invariant
           Section.
 
        O. Preserve any Warranty Disclaimers.
@@ -4636,15 +4636,15 @@ GNU Free Documentation License
      appendices that qualify as Secondary Sections and contain no
      material copied from the Document, you may at your option designate
      some or all of these sections as invariant.  To do this, add their
-     titles to the list of Invariant Sections in the Modified Version’s
+     titles to the list of Invariant Sections in the Modified Version's
      license notice.  These titles must be distinct from any other
      section titles.
 
-     You may add a section Entitled “Endorsements”, provided it contains
+     You may add a section Entitled "Endorsements", provided it contains
      nothing but endorsements of your Modified Version by various
-     parties—for example, statements of peer review or that the text has
-     been approved by an organization as the authoritative definition of
-     a standard.
+     parties--for example, statements of peer review or that the text
+     has been approved by an organization as the authoritative
+     definition of a standard.
 
      You may add a passage of up to five words as a Front-Cover Text,
      and a passage of up to 25 words as a Back-Cover Text, to the end of
@@ -4682,10 +4682,10 @@ GNU Free Documentation License
      combined work.
 
      In the combination, you must combine any sections Entitled
-     “History” in the various original documents, forming one section
-     Entitled “History”; likewise combine any sections Entitled
-     “Acknowledgements”, and any sections Entitled “Dedications”.  You
-     must delete all sections Entitled “Endorsements.”
+     "History" in the various original documents, forming one section
+     Entitled "History"; likewise combine any sections Entitled
+     "Acknowledgements", and any sections Entitled "Dedications".  You
+     must delete all sections Entitled "Endorsements."
 
   6. COLLECTIONS OF DOCUMENTS
 
@@ -4706,16 +4706,16 @@ GNU Free Documentation License
 
      A compilation of the Document or its derivatives with other
      separate and independent documents or works, in or on a volume of a
-     storage or distribution medium, is called an “aggregate” if the
+     storage or distribution medium, is called an "aggregate" if the
      copyright resulting from the compilation is not used to limit the
-     legal rights of the compilation’s users beyond what the individual
+     legal rights of the compilation's users beyond what the individual
      works permit.  When the Document is included in an aggregate, this
      License does not apply to the other works in the aggregate which
      are not themselves derivative works of the Document.
 
      If the Cover Text requirement of section 3 is applicable to these
      copies of the Document, then if the Document is less than one half
-     of the entire aggregate, the Document’s Cover Texts may be placed
+     of the entire aggregate, the Document's Cover Texts may be placed
      on covers that bracket the Document within the aggregate, or the
      electronic equivalent of covers if the Document is in electronic
      form.  Otherwise they must appear on printed covers that bracket
@@ -4737,8 +4737,8 @@ GNU Free Documentation License
      this License or a notice or disclaimer, the original version will
      prevail.
 
-     If a section in the Document is Entitled “Acknowledgements”,
-     “Dedications”, or “History”, the requirement (section 4) to
+     If a section in the Document is Entitled "Acknowledgements",
+     "Dedications", or "History", the requirement (section 4) to
      Preserve its Title (section 1) will typically require changing the
      actual title.
 
@@ -4779,7 +4779,7 @@ GNU Free Documentation License
 
      Each version of the License is given a distinguishing version
      number.  If the Document specifies that a particular numbered
-     version of this License “or any later version” applies to it, you
+     version of this License "or any later version" applies to it, you
      have the option of following the terms and conditions either of
      that specified version or of any later version that has been
      published (not as a draft) by the Free Software Foundation.  If the
@@ -4787,29 +4787,29 @@ GNU Free Documentation License
      choose any version ever published (not as a draft) by the Free
      Software Foundation.  If the Document specifies that a proxy can
      decide which future versions of this License can be used, that
-     proxy’s public statement of acceptance of a version permanently
+     proxy's public statement of acceptance of a version permanently
      authorizes you to choose that version for the Document.
 
   11. RELICENSING
 
-     “Massive Multiauthor Collaboration Site” (or “MMC Site”) means any
+     "Massive Multiauthor Collaboration Site" (or "MMC Site") means any
      World Wide Web server that publishes copyrightable works and also
      provides prominent facilities for anybody to edit those works.  A
      public wiki that anybody can edit is an example of such a server.
-     A “Massive Multiauthor Collaboration” (or “MMC”) contained in the
+     A "Massive Multiauthor Collaboration" (or "MMC") contained in the
      site means any set of copyrightable works thus published on the MMC
      site.
 
-     “CC-BY-SA” means the Creative Commons Attribution-Share Alike 3.0
+     "CC-BY-SA" means the Creative Commons Attribution-Share Alike 3.0
      license published by Creative Commons Corporation, a not-for-profit
      corporation with a principal place of business in San Francisco,
      California, as well as future copyleft versions of that license
      published by that same organization.
 
-     “Incorporate” means to publish or republish a Document, in whole or
+     "Incorporate" means to publish or republish a Document, in whole or
      in part, as part of another Document.
 
-     An MMC is “eligible for relicensing” if it is licensed under this
+     An MMC is "eligible for relicensing" if it is licensed under this
      License, and if all works that were first published under this
      License somewhere other than this MMC, and subsequently
      incorporated in whole or in part into the MMC, (1) had no cover
@@ -4836,7 +4836,7 @@ notices just after the title page:
        Free Documentation License''.
 
    If you have Invariant Sections, Front-Cover Texts and Back-Cover
-Texts, replace the “with...Texts.” line with this:
+Texts, replace the "with...Texts."  line with this:
 
          with the Invariant Sections being LIST THEIR TITLES, with
          the Front-Cover Texts being LIST, and with the Back-Cover Texts
@@ -4887,105 +4887,105 @@ Concept Index
 
 
 Tag Table:
-Node: Top1712
-Node: Installing GCC2217
-Node: Prerequisites3859
-Ref: GNAT-prerequisite5871
-Ref: GDC-prerequisite7296
-Ref: GM2-prerequisite8501
-Node: Downloading the source18852
-Node: Configuration20571
-Ref: with-gnu-as39466
-Ref: with-as40355
-Ref: with-gnu-ld41764
-Ref: WithAixSoname69742
-Ref: AixLdCommand70457
-Node: Building114613
-Node: Testing131306
-Node: Final install139269
-Node: Binaries144082
-Node: Specific145096
-Ref: aarch64-x-x145630
-Ref: alpha-x-x147714
-Ref: amd64-x-solaris2147928
-Ref: amdgcn-x-amdhsa148014
-Ref: arc-x-elf32148579
-Ref: arc-linux-uclibc148771
-Ref: arm-x-eabi148916
-Ref: avr149173
-Ref: bfin149762
-Ref: cris150025
-Ref: dos150355
-Ref: epiphany-x-elf150680
-Ref: x-x-freebsd150785
-Ref: ft32-x-elf152373
-Ref: h8300-hms152471
-Ref: hppa-hp-hpux152823
-Ref: hppa-hp-hpux10155245
-Ref: hppa-hp-hpux11155662
-Ref: x-x-linux-gnu161180
-Ref: ix86-x-linux161511
-Ref: ix86-x-solaris2161824
-Ref: ia64-x-linux162084
-Ref: ia64-x-hpux162335
-Ref: x-ibm-aix162902
-Ref: TransferAixShobj166630
-Ref: iq2000-x-elf170532
-Ref: lm32-x-elf170672
-Ref: lm32-x-uclinux170776
-Ref: loongarch170904
-Ref: m32c-x-elf171638
-Ref: m32r-x-elf171740
-Ref: m68k-x-x171842
-Ref: m68k-x-uclinux172972
-Ref: microblaze-x-elf173225
-Ref: mips-x-x173344
-Ref: moxie-x-elf175338
-Ref: msp430-x-elf175385
-Ref: nds32le-x-elf175954
-Ref: nds32be-x-elf176026
-Ref: nvptx-x-none176095
-Ref: or1k-x-elf177004
-Ref: or1k-x-linux177135
-Ref: powerpc-x-x177216
-Ref: powerpc-x-darwin177415
-Ref: powerpc-x-elf177910
-Ref: powerpc-x-linux-gnu177995
-Ref: powerpc-x-netbsd178090
-Ref: powerpc-x-eabisim178178
-Ref: powerpc-x-eabi178304
-Ref: powerpcle-x-elf178380
-Ref: powerpcle-x-eabisim178472
-Ref: powerpcle-x-eabi178605
-Ref: rl78-x-elf178688
-Ref: riscv32-x-elf178794
-Ref: riscv32-x-linux178983
-Ref: riscv64-x-elf179140
-Ref: riscv64-x-linux179329
-Ref: rx-x-elf179486
-Ref: s390-x-linux179532
-Ref: s390x-x-linux179604
-Ref: s390x-ibm-tpf179691
-Ref: x-x-solaris2179822
-Ref: sparc-x-x183763
-Ref: sparc-sun-solaris2184265
-Ref: sparc-x-linux185180
-Ref: sparc64-x-solaris2185211
-Ref: sparcv9-x-solaris2185302
-Ref: c6x-x-x186051
-Ref: visium-x-elf186143
-Ref: x-x-vxworks186251
-Ref: x86-64-x-x187840
-Ref: x86-64-x-solaris2188172
-Ref: xtensa-x-elf188826
-Ref: xtensa-x-linux189505
-Ref: windows189858
-Ref: x-x-cygwin191511
-Ref: x-x-mingw32192066
-Ref: older192464
-Ref: elf194605
-Node: GNU Free Documentation License194859
-Node: Concept Index220200
+Node: Top1694
+Node: Installing GCC2199
+Node: Prerequisites3839
+Ref: GNAT-prerequisite5851
+Ref: GDC-prerequisite7276
+Ref: GM2-prerequisite8479
+Node: Downloading the source18814
+Node: Configuration20533
+Ref: with-gnu-as39390
+Ref: with-as40279
+Ref: with-gnu-ld41688
+Ref: WithAixSoname69662
+Ref: AixLdCommand70377
+Node: Building114513
+Node: Testing131184
+Node: Final install139135
+Node: Binaries143942
+Node: Specific144953
+Ref: aarch64-x-x145487
+Ref: alpha-x-x147571
+Ref: amd64-x-solaris2147785
+Ref: amdgcn-x-amdhsa147871
+Ref: arc-x-elf32148436
+Ref: arc-linux-uclibc148628
+Ref: arm-x-eabi148773
+Ref: avr149030
+Ref: bfin149619
+Ref: cris149882
+Ref: dos150212
+Ref: epiphany-x-elf150537
+Ref: x-x-freebsd150642
+Ref: ft32-x-elf152230
+Ref: h8300-hms152328
+Ref: hppa-hp-hpux152680
+Ref: hppa-hp-hpux10155100
+Ref: hppa-hp-hpux11155517
+Ref: x-x-linux-gnu161019
+Ref: ix86-x-linux161350
+Ref: ix86-x-solaris2161663
+Ref: ia64-x-linux161923
+Ref: ia64-x-hpux162174
+Ref: x-ibm-aix162741
+Ref: TransferAixShobj166459
+Ref: iq2000-x-elf170349
+Ref: lm32-x-elf170489
+Ref: lm32-x-uclinux170593
+Ref: loongarch170721
+Ref: m32c-x-elf171455
+Ref: m32r-x-elf171557
+Ref: m68k-x-x171659
+Ref: m68k-x-uclinux172789
+Ref: microblaze-x-elf173042
+Ref: mips-x-x173161
+Ref: moxie-x-elf175147
+Ref: msp430-x-elf175194
+Ref: nds32le-x-elf175763
+Ref: nds32be-x-elf175835
+Ref: nvptx-x-none175904
+Ref: or1k-x-elf176811
+Ref: or1k-x-linux176942
+Ref: powerpc-x-x177023
+Ref: powerpc-x-darwin177222
+Ref: powerpc-x-elf177717
+Ref: powerpc-x-linux-gnu177802
+Ref: powerpc-x-netbsd177897
+Ref: powerpc-x-eabisim177985
+Ref: powerpc-x-eabi178111
+Ref: powerpcle-x-elf178187
+Ref: powerpcle-x-eabisim178279
+Ref: powerpcle-x-eabi178412
+Ref: rl78-x-elf178495
+Ref: riscv32-x-elf178601
+Ref: riscv32-x-linux178790
+Ref: riscv64-x-elf178947
+Ref: riscv64-x-linux179136
+Ref: rx-x-elf179293
+Ref: s390-x-linux179339
+Ref: s390x-x-linux179411
+Ref: s390x-ibm-tpf179498
+Ref: x-x-solaris2179629
+Ref: sparc-x-x183562
+Ref: sparc-sun-solaris2184064
+Ref: sparc-x-linux184979
+Ref: sparc64-x-solaris2185010
+Ref: sparcv9-x-solaris2185101
+Ref: c6x-x-x185850
+Ref: visium-x-elf185942
+Ref: x-x-vxworks186050
+Ref: x86-64-x-x187629
+Ref: x86-64-x-solaris2187961
+Ref: xtensa-x-elf188615
+Ref: xtensa-x-linux189294
+Ref: windows189647
+Ref: x-x-cygwin191300
+Ref: x-x-mingw32191853
+Ref: older192251
+Ref: elf194388
+Node: GNU Free Documentation License194642
+Node: Concept Index219783
 
 End Tag Table
 
