@@ -1,4 +1,4 @@
-This is porting.info, produced by makeinfo version 7.1 from
+This is porting.info, produced by makeinfo version 7.2 from
 porting.texi.
 
 Copyright © 1993, 1994, 1995 Cygnus Support
@@ -588,7 +588,6 @@ Example Crt0.S: crt0.S.
 
      /* Use the right prefix for global labels.  */
      #define SYM(x) CONCAT1 (__USER_LABEL_PREFIX__, x)
-
 
    These macros are to make this code portable between both _COFF_ and
 _a.out_.  _COFF_ always has an _ (UNDERLINE) prepended on the front of
@@ -1220,7 +1219,7 @@ All other commands are optional, and not supported by all GDB backends.
      sequence starting with register 0.  All registers are listed in the
      same packet.  A sample packet would look like ‘$g#’.
 
-‘write registers	‘GXXXXXXXX...’’
+‘write registers ‘GXXXXXXXX...’’
      ‘XXXXXXXX’ is the value to set the register to.  Registers are in
      the internal order for GDB, and the bytes in a register are in the
      same order the machine uses.  All values are in sequence starting
@@ -1241,7 +1240,7 @@ All other commands are optional, and not supported by all GDB backends.
      end of packet ‘#’ is seen and comparing that with the total count
      of bytes that was requested.
 
-‘write memory	‘MAAAAAAAA,LLLL:XXXXXXXX’’
+‘write memory ‘MAAAAAAAA,LLLL:XXXXXXXX’’
      ‘AAAAAAAA’ is the starting address, ‘LLLL’ is the number of bytes
      to be written, and ‘XXXXXXXX’ is value to be written.  A sample
      packet would look like
@@ -1250,7 +1249,7 @@ All other commands are optional, and not supported by all GDB backends.
      returns ‘ACK’ or ‘NAK’ for an error.  ‘NAK’ is also returned when
      only part of the data is written.
 
-‘continue	‘cAAAAAAAAA’’
+‘continue ‘cAAAAAAAAA’’
      ‘AAAAAAAA’ is address to resume execution at.  If ‘AAAAAAAA’ is
      omitted, resume at the curent address of the ‘pc’ register.
 
@@ -1258,7 +1257,7 @@ All other commands are optional, and not supported by all GDB backends.
      replay to ‘cont’ until the next breakpoint is reached, and the
      program stops executing.
 
-‘step	sAA..AA’
+‘step sAA..AA’
      ‘AA..AA’ is address to resume If ‘AA..AA’ is omitted, resume at
      same address.
 
@@ -1289,34 +1288,34 @@ All other commands are optional, and not supported by all GDB backends.
 
      returns ‘ACK’ or ‘NAK’
 
-‘kill request	k’
+‘kill request k’
 
-‘toggle debug	d’
+‘toggle debug d’
      toggle debug flag (see 386 & 68k stubs)
 
-‘reset	r’
+‘reset r’
      reset - see sparc stub.
 
-‘reserved	‘other’’
+‘reserved ‘other’’
      On other requests, the stub should ignore the request and send an
      empty response ‘$#<checksum>’.  This way we can extend the protocol
-     and GDB can tell whether the stub it is	talking to uses the old or
+     and GDB can tell whether the stub it is talking to uses the old or
      the new.
 
-‘search	‘tAA:PP,MM’’
+‘search ‘tAA:PP,MM’’
      Search backwards starting at address ‘AA’ for a match with pattern
      PP and mask ‘MM’.  ‘PP’ and ‘MM’ are 4 bytes.
 
-‘general query	‘qXXXX’’
+‘general query ‘qXXXX’’
      Request info about XXXX.
 
-‘general set	‘QXXXX=yyyy’’
+‘general set ‘QXXXX=yyyy’’
      Set value of ‘XXXX’ to ‘yyyy’.
 
-‘query sect offs	‘qOffsets’’
+‘query sect offs ‘qOffsets’’
      Get section offsets.  Reply is ‘Text=xxx;Data=yyy;Bss=zzz’
 
-‘console output	Otext’
+‘console output Otext’
      Send text to stdout.  The text gets display from the target side of
      the serial connection.
 
@@ -2004,7 +2003,6 @@ A.4 I/O assembler code sample
      	.set divu32, 0x6A
      	.set chk_sum, 0x6B
 
-
 
 File: porting.info,  Node: io.c,  Next: leds.c,  Prev: mvme.S,  Up: Code Listings
 
@@ -2135,7 +2133,6 @@ A.6 Led control sample
          }
      }
 
-
 
 Tag Table:
 Node: Top1445
@@ -2157,26 +2154,26 @@ Node: GAS Options24078
 Node: LD Options24173
 Node: Libraries24248
 Node: Crt024560
-Node: Linker Scripts30873
-Node: What to do now35890
-Node: Libc36803
-Node: I/O Support38659
-Node: Memory Support38780
-Node: Misc Support40274
-Node: Debugging41467
-Node: GDB45070
-Node: GNU remote protocol46474
-Node: Exception handler53362
-Node: ROM monitors54793
-Node: Other remote protocols55787
-Node: Binutils55946
-Node: Code Listings56029
-Node: idp.ld56500
-Node: crt0.S58247
-Node: glue.c60850
-Node: mvme.S65738
-Node: io.c69885
-Node: leds.c70495
+Node: Linker Scripts30872
+Node: What to do now35889
+Node: Libc36802
+Node: I/O Support38658
+Node: Memory Support38779
+Node: Misc Support40273
+Node: Debugging41466
+Node: GDB45069
+Node: GNU remote protocol46473
+Node: Exception handler53361
+Node: ROM monitors54792
+Node: Other remote protocols55786
+Node: Binutils55945
+Node: Code Listings56028
+Node: idp.ld56499
+Node: crt0.S58246
+Node: glue.c60849
+Node: mvme.S65737
+Node: io.c69883
+Node: leds.c70493
 
 End Tag Table
 
