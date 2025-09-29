@@ -1870,7 +1870,7 @@ namespace __gnu_cxx
 /* #undef _GLIBCXX_USE_UTIMENSAT */
 
 /* Define if code specialized for wchar_t should be used. */
-#define _GLIBCXX_USE_WCHAR_T 1
+/* #undef _GLIBCXX_USE_WCHAR_T */
 
 /* Defined if Sleep exists. */
 /* #undef _GLIBCXX_USE_WIN32_SLEEP */
