@@ -55,7 +55,7 @@
 .\" ========================================================================
 .\"
 .IX Title "OBJDUMP 1"
-.TH OBJDUMP 1 2025-06-28 binutils-2.44 "GNU Development Tools"
+.TH OBJDUMP 1 2025-09-29 binutils-2.45 "GNU Development Tools"
 .\" For nroff, turn off justification.  Always turn off hyphenation; it makes
 .\" way too many mistakes in technical documents.
 .if n .ad l
@@ -240,11 +240,11 @@ with ctags tool.
 Display the assembler mnemonics for the machine instructions from the
 input file.  This option only disassembles those sections which are 
 expected to contain instructions.  If the optional \fIsymbol\fR
-argument is given, then display the assembler mnemonics starting at
-\&\fIsymbol\fR.  If \fIsymbol\fR is a function name then disassembly
-will stop at the end of the function, otherwise it will stop when the
-next symbol is encountered.  If there are no matches for \fIsymbol\fR
-then nothing will be displayed.
+argument is given (perhaps multiple times), then display the assembler
+mnemonics starting at (all the) \fIsymbol\fR.  If \fIsymbol\fR is a
+function name then disassembly will stop at the end of the function,
+otherwise it will stop when the next symbol is encountered.  If there
+are no matches for any \fIsymbol\fR then nothing will be displayed.
 .Sp
 Note if the \fB\-\-dwarf=follow\-links\fR option is enabled
 then any symbol tables in linked debug info files will be read in and
@@ -571,6 +571,35 @@ If you disassemble without giving a CPU selection, a default will be
 chosen from information gleaned by BFD from the object files headers,
 but the result again may not be as you expect.
 .Sp
+For RISC-V, the following options are supported:
+.ie n .IP """max""" 4
+.el .IP \f(CWmax\fR 4
+.IX Item "max"
+Disassemble without checking architecture string. This is a best effort mode, so
+for overlapping ISA extensions the first match (possibly incorrect in a given
+context) will be used to decode the instruction. It's useful, if the ELF file
+doesn't expose ISA string, preventing automatic ISA subset deduction, and the
+default fallback ISA string (\f(CW\*(C`rv64gc\*(C'\fR) doesn't cover all instructions in
+the binary.
+.ie n .IP """numeric""" 4
+.el .IP \f(CWnumeric\fR 4
+.IX Item "numeric"
+Print numeric register names, rather than ABI names (e.g., print \f(CW\*(C`x2\*(C'\fR
+instead of \f(CW\*(C`sp\*(C'\fR).
+.ie n .IP """no\-aliases""" 4
+.el .IP \f(CWno\-aliases\fR 4
+.IX Item "no-aliases"
+Disassemble only into canonical instructions. For example, compressed
+instructions will be represented as such (\f(CW\*(C`addi sp,sp,\-128\*(C'\fR will be
+\&\f(CW\*(C`c.addi16sp sp,\-128\*(C'\fR).
+.ie n .IP """priv\-spec=\fISPEC\fR""" 4
+.el .IP \f(CWpriv\-spec=\fR\f(CISPEC\fR\f(CW\fR 4
+.IX Item "priv-spec=SPEC"
+Print the CSR according to the chosen privilege spec version (e.g.,
+\&\f(CW1.10\fR, \f(CW1.11\fR, \f(CW1.12\fR, \f(CW1.13\fR).
+.RE
+.RS 4
+.Sp
 For MIPS, this option controls the printing of instruction mnemonic
 names and register names in disassembled instructions.  Multiple
 selections from the following may be specified as a comma separated
@@ -741,6 +770,9 @@ meaningful for dynamic objects, such as certain types of shared
 libraries.  As for \fB\-r\fR, if used with \fB\-d\fR or
 \&\fB\-D\fR, the relocations are printed interspersed with the
 disassembly.
+.Sp
+Note: \fBobjdump\fR does not support displaying RELR type
+relocations.  These can be displayed by the \fBreadelf\fR program.
 .IP \fB\-s\fR 4
 .IX Item "-s"
 .PD 0
@@ -811,8 +843,8 @@ after it has previously been enabled then use
 .IX Item "--disassembler-color=terminal"
 .IP \fB\-\-disassembler\-color=on|color|colour\fR 4
 .IX Item "--disassembler-color=on|color|colour"
-.IP \fB\-\-disassembler\-color=extened|extended\-color|extened\-colour\fR 4
-.IX Item "--disassembler-color=extened|extended-color|extened-colour"
+.IP \fB\-\-disassembler\-color=extended|extended\-color|extended\-colour\fR 4
+.IX Item "--disassembler-color=extended|extended-color|extended-colour"
 .PD
 Enables or disables the use of colored syntax highlighting in
 disassembly output.  The default behaviour is determined via a

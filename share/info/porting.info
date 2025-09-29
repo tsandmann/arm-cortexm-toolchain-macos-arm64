@@ -16,9 +16,7 @@ a permission notice identical to this one.
 manual into another language, under the above conditions for modified
 versions.
 START-INFO-DIR-ENTRY
-START-INFO-DIR-ENTRY
 * Embed with GNU: (porting-).         Embed with GNU
-END-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
    Copyright © 1993, 1994, 1995 Cygnus Support
@@ -2135,45 +2133,45 @@ A.6 Led control sample
 
 
 Tag Table:
-Node: Top1445
-Node: Libgloss2232
-Node: Supported targets5424
-Node: Blackfin5960
-Node: Sparclite6235
-Node: CPU327161
-Node: Mips8473
-Node: PA-RISC9811
-Node: Building libgloss11344
-Node: Board support14989
-Node: Build System Internals17181
-Node: GCC19528
-Node: Overview20831
-Node: Options23087
-Node: GCC Options23763
-Node: GAS Options24078
-Node: LD Options24173
-Node: Libraries24248
-Node: Crt024560
-Node: Linker Scripts30872
-Node: What to do now35889
-Node: Libc36802
-Node: I/O Support38658
-Node: Memory Support38779
-Node: Misc Support40273
-Node: Debugging41466
-Node: GDB45069
-Node: GNU remote protocol46473
-Node: Exception handler53361
-Node: ROM monitors54792
-Node: Other remote protocols55786
-Node: Binutils55945
-Node: Code Listings56028
-Node: idp.ld56499
-Node: crt0.S58246
-Node: glue.c60849
-Node: mvme.S65737
-Node: io.c69883
-Node: leds.c70493
+Node: Top1405
+Node: Libgloss2192
+Node: Supported targets5384
+Node: Blackfin5920
+Node: Sparclite6195
+Node: CPU327121
+Node: Mips8433
+Node: PA-RISC9771
+Node: Building libgloss11304
+Node: Board support14949
+Node: Build System Internals17141
+Node: GCC19488
+Node: Overview20791
+Node: Options23047
+Node: GCC Options23723
+Node: GAS Options24038
+Node: LD Options24133
+Node: Libraries24208
+Node: Crt024520
+Node: Linker Scripts30832
+Node: What to do now35849
+Node: Libc36762
+Node: I/O Support38618
+Node: Memory Support38739
+Node: Misc Support40233
+Node: Debugging41426
+Node: GDB45029
+Node: GNU remote protocol46433
+Node: Exception handler53321
+Node: ROM monitors54752
+Node: Other remote protocols55746
+Node: Binutils55905
+Node: Code Listings55988
+Node: idp.ld56459
+Node: crt0.S58206
+Node: glue.c60809
+Node: mvme.S65697
+Node: io.c69843
+Node: leds.c70453
 
 End Tag Table
 

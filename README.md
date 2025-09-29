@@ -1,11 +1,11 @@
 # arm-cortexm-toolchain-macos-arm64
-A cross-compiler toolchain for macOS (15) arm64 host and arm-none-eabi targets optimized for cortex-m0+, cortex-m33f and cortex-m7f.
+A cross-compiler toolchain for macOS (26) arm64 host and arm-none-eabi targets optimized for cortex-m0+, cortex-m33f and cortex-m7f.
 
 #### Installation
 Checkout somewhere (e.g. to `/usr/local/arm-none-eabi`) and add the `bin` folder of that path (e.g `/usr/local/arm-none-eabi/bin`) to *PATH*.
 
 #### Components and Versions
-* gcc 15.1, newlib 4.5, binutils 2.44, gdb 16.3 (built with crosstool-ng)
+* gcc 15.2, newlib 4.5, binutils 2.45, gdb 16.3 (built with crosstool-ng)
   * newlib is built with nano malloc
   * newlib is available in two versions:
     1. with standard printf (*libc.a*)

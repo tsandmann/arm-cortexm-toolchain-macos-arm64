@@ -224,7 +224,7 @@ SECTIONS
       . = ALIGN(. != 0 ? 32 / 8 : 1);
   }
   _bss_end__ = .; __bss_end__ = .;
-  /* This section contains data that is not initialized during load,
+    /* This section contains data that is not initialized during load,
      or during the application's initialization sequence.  */
   .noinit   (NOLOAD) : ALIGN(32 / 8)
   {
@@ -233,7 +233,7 @@ SECTIONS
       . = ALIGN(32 / 8);
     PROVIDE (__noinit_end = .);
   }
-  . = ALIGN(32 / 8);
+    . = ALIGN(32 / 8);
   /* Start of the Large Data region.  */
   . = SEGMENT_START("ldata-segment", .);
   . = ALIGN(32 / 8);

@@ -145,7 +145,7 @@ SECTIONS
        FIXME: Why do we need it? When there is no .bss section, we do not
        pad the .data section.  */
   }
-  /* This section contains data that is not initialized during load,
+    /* This section contains data that is not initialized during load,
      or during the application's initialization sequence.  */
   .noinit 0 (NOLOAD) :
   {
